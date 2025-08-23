@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<runners_data>
+<runner_data>
+<id>1</id>
+<name>Sarmīte Vlodare</name>
+<sex>S</sex>
+<birth>1958-10-06</birth>
+<country>LV</country>
+<team>2</team>
+<card>8651743</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>2</id>
+<name>Dace Saulīte</name>
+<sex>S</sex>
+<birth>1959-04-18</birth>
+<country>LV</country>
+<team>2</team>
+<card>8657177</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>3</id>
+<name>Zane Blumberga</name>
+<sex>S</sex>
+<birth>1969-07-30</birth>
+<country>LV</country>
+<team>3</team>
+<card>8073069</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>4</id>
+<name>Ligita Baltrašjuna</name>
+<sex>S</sex>
+<birth>1981-01-24</birth>
+<country>LV</country>
+<team>3</team>
+<card>1602330</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>5</id>
+<name>Sigita Cimermane</name>
+<sex>S</sex>
+<birth>1980-03-23</birth>
+<country>LV</country>
+<team>4</team>
+<card>8680023</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>6</id>
+<name>Edvards Cimermanis</name>
+<sex>V</sex>
+<birth>2011-02-21</birth>
+<country>LV</country>
+<team>4</team>
+<card>8333900</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>7</id>
+<name>Ieva Medvedeva</name>
+<sex>S</sex>
+<birth>1985-03-18</birth>
+<country>LV</country>
+<team>5</team>
+<card>8651756</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>8</id>
+<name>Anna Rijkure</name>
+<sex>S</sex>
+<birth>1979-04-24</birth>
+<country>LV</country>
+<team>5</team>
+<card>8651763</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>9</id>
+<name>Dace Dātava</name>
+<sex>S</sex>
+<birth>1979-02-14</birth>
+<country>LV</country>
+<team>5</team>
+<card>8651767</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>10</id>
+<name>Vija Utāne</name>
+<sex>S</sex>
+<birth>1969-03-01</birth>
+<country>LV</country>
+<team>6</team>
+<card>8651770</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>12</id>
+<name>Ēvalds Žogla</name>
+<sex>V</sex>
+<birth>1963-08-03</birth>
+<country>LV</country>
+<team>6</team>
+<card>8680027</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>13</id>
+<name>Anita Paidere</name>
+<sex>S</sex>
+<birth>1967-08-08</birth>
+<country>LV</country>
+<team>7</team>
+<card>8183054</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>14</id>
+<name>Juris Paiders</name>
+<sex>V</sex>
+<birth>1963-08-28</birth>
+<country>LV</country>
+<team>7</team>
+<card>8651753</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>15</id>
+<name>Vita Žukovska</name>
+<sex>S</sex>
+<birth>1970-03-12</birth>
+<country>LV</country>
+<team>9</team>
+<card>8668977</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>16</id>
+<name>Jana Adata</name>
+<sex>S</sex>
+<birth>1972-01-07</birth>
+<country>LV</country>
+<team>9</team>
+<card>8183062</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>17</id>
+<name>Mareks Dombrovskis</name>
+<sex>V</sex>
+<birth>1975-11-01</birth>
+<country>LV</country>
+<team>10</team>
+<card>8511701</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>18</id>
+<name>Jeļena Dombrovska</name>
+<sex>S</sex>
+<birth>1976-02-06</birth>
+<country>LV</country>
+<team>10</team>
+<card>8651769</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>19</id>
+<name>Arvis Zvanītājs</name>
+<sex>V</sex>
+<birth>1969-01-06</birth>
+<country>LV</country>
+<team>11</team>
+<card>8000772</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>20</id>
+<name>Austris Lepiksons</name>
+<sex>V</sex>
+<birth>1967-08-21</birth>
+<country>LV</country>
+<team>11</team>
+<card>8008889</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>21</id>
+<name>Gunta Bluzma</name>
+<sex>S</sex>
+<birth>1978-12-30</birth>
+<country>LV</country>
+<team>12</team>
+<card>8142161</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>22</id>
+<name>Laura Mazmača</name>
+<sex>S</sex>
+<birth>1976-07-10</birth>
+<country>LV</country>
+<team>12</team>
+<card>8000771</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>23</id>
+<name>Elizabete Dzalbe</name>
+<sex>S</sex>
+<birth>2002-04-19</birth>
+<country>LV</country>
+<team>13</team>
+<card>8044460</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>24</id>
+<name>Miks Rūdolfs Ozols</name>
+<sex>V</sex>
+<birth>2004-12-15</birth>
+<country>LV</country>
+<team>13</team>
+<card>8077708</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>25</id>
+<name>Dārta Auziņa</name>
+<sex>S</sex>
+<birth>2004-06-14</birth>
+<country>LV</country>
+<team>13</team>
+<card>1406634</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>26</id>
+<name>Edgars Rancāns</name>
+<sex>V</sex>
+<birth>1981-01-04</birth>
+<country>LV</country>
+<team>14</team>
+<card>8527363</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>27</id>
+<name>Aija Svikle</name>
+<sex>S</sex>
+<birth>1984-07-19</birth>
+<country>LV</country>
+<team>14</team>
+<card>8105231</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>28</id>
+<name>Ivars Freibergs</name>
+<sex>V</sex>
+<birth>1986-11-17</birth>
+<country>LV</country>
+<team>15</team>
+<card>8651742</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>29</id>
+<name>Santa Freiberga</name>
+<sex>S</sex>
+<birth>1986-07-27</birth>
+<country>LV</country>
+<team>15</team>
+<card>8631524</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>30</id>
+<name>Inga Vosorova</name>
+<sex>S</sex>
+<birth>1982-06-11</birth>
+<country>LV</country>
+<team>16</team>
+<card>8651779</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>32</id>
+<name>Vineta Kiseļeva</name>
+<sex>S</sex>
+<birth>1996-04-03</birth>
+<country>LV</country>
+<team>16</team>
+<card>8653217</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>33</id>
+<name>Kalvis Alps</name>
+<sex>V</sex>
+<birth>1989-03-18</birth>
+<country>LV</country>
+<team>16</team>
+<card>8651778</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>34</id>
+<name>Gunta Brazauska</name>
+<sex>S</sex>
+<birth>1980-08-18</birth>
+<country>LV</country>
+<team>21</team>
+<card>8098888</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>35</id>
+<name>Nora Baranovska</name>
+<sex>S</sex>
+<birth>1976-08-01</birth>
+<country>LV</country>
+<team>21</team>
+<card>8064434</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>36</id>
+<name>Ilmārs Dukulis</name>
+<sex>V</sex>
+<birth>1964-12-19</birth>
+<country>LV</country>
+<team>23</team>
+<card>8629081</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>37</id>
+<name>Zintis Brasavs-Muižnieks</name>
+<sex>V</sex>
+<birth>1970-07-16</birth>
+<country>LV</country>
+<team>23</team>
+<card>8005549</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>38</id>
+<name>Romāns Koškins</name>
+<sex>V</sex>
+<birth>1975-06-27</birth>
+<country>LV</country>
+<team>24</team>
+<card>8334477</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>39</id>
+<name>Ilva Koškina</name>
+<sex>S</sex>
+<birth>1974-07-11</birth>
+<country>LV</country>
+<team>24</team>
+<card>8670317</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>40</id>
+<name>Elīza Koškina</name>
+<sex>S</sex>
+<birth>2010-07-01</birth>
+<country>LV</country>
+<team>24</team>
+<card>8500950</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>41</id>
+<name>Madara Apsalone</name>
+<sex>S</sex>
+<birth>1985-04-10</birth>
+<country>LV</country>
+<team>25</team>
+<card>1420755</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>42</id>
+<name>Aleksandra Fjodorova</name>
+<sex>S</sex>
+<birth>1989-09-23</birth>
+<country>LV</country>
+<team>25</team>
+<card>8663355</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>43</id>
+<name>Indra Segliņa</name>
+<sex>S</sex>
+<birth>1970-05-16</birth>
+<country>LV</country>
+<team>26</team>
+<card>8160570</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>44</id>
+<name>Ieva Vītoliņa</name>
+<sex>S</sex>
+<birth>1970-05-22</birth>
+<country>LV</country>
+<team>26</team>
+<card>8444600</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>45</id>
+<name>Jānis Pētersons</name>
+<sex>V</sex>
+<birth>1969-06-23</birth>
+<country>LV</country>
+<team>29</team>
+<card>9200244</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>46</id>
+<name>Dace Traniņa</name>
+<sex>S</sex>
+<birth>1979-08-19</birth>
+<country>LV</country>
+<team>29</team>
+<card>8533817</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>47</id>
+<name>Aira Semjonova</name>
+<sex>S</sex>
+<birth>1978-02-28</birth>
+<country>LV</country>
+<team>30</team>
+<card>8651751</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>48</id>
+<name>Anta Bojane</name>
+<sex>S</sex>
+<birth>1985-12-02</birth>
+<country>LV</country>
+<team>30</team>
+<card>8651750</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>49</id>
+<name>Sanda Bojane</name>
+<sex>S</sex>
+<birth>1979-09-11</birth>
+<country>LV</country>
+<team>30</team>
+<card>8651749</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>50</id>
+<name>Rolands Auziņš</name>
+<sex>V</sex>
+<birth>1970-06-06</birth>
+<country>LV</country>
+<team>31</team>
+<card>8663363</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>51</id>
+<name>Jānis Ģirnis</name>
+<sex>V</sex>
+<birth>1973-12-02</birth>
+<country>LV</country>
+<team>31</team>
+<card>8118999</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>52</id>
+<name>Hirvo Rannu</name>
+<sex>V</sex>
+<birth>1972-02-04</birth>
+<country>EE</country>
+<team>32</team>
+<card>8040272</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>53</id>
+<name>Margus Marrandi</name>
+<sex>V</sex>
+<birth>1973-11-17</birth>
+<country>EE</country>
+<team>32</team>
+<card>8171173</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>54</id>
+<name>Peteris Zarins</name>
+<sex>V</sex>
+<birth>1961-01-08</birth>
+<country>LV</country>
+<team>34</team>
+<card>8662232</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>55</id>
+<name>Baiba Ozola</name>
+<sex>S</sex>
+<birth>1964-10-18</birth>
+<country>LV</country>
+<team>34</team>
+<card>8628425</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>56</id>
+<name>Andris Vilcāns</name>
+<sex>V</sex>
+<birth>1978-01-10</birth>
+<country>LV</country>
+<team>36</team>
+<card>8022358</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>57</id>
+<name>Kristīne Vilcāne</name>
+<sex>S</sex>
+<birth>1979-10-21</birth>
+<country>LV</country>
+<team>36</team>
+<card>8663406</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>58</id>
+<name>Edgars Peičs</name>
+<sex>V</sex>
+<birth>1977-10-24</birth>
+<country>LV</country>
+<team>38</team>
+<card>8090900</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>59</id>
+<name>Arvīds Ozoliņš</name>
+<sex>V</sex>
+<birth>1974-11-07</birth>
+<country>LV</country>
+<team>38</team>
+<card>8651774</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>60</id>
+<name>Viesturs Šlosbergs</name>
+<sex>V</sex>
+<birth>1977-08-21</birth>
+<country>LV</country>
+<team>42</team>
+<card>8061411</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>61</id>
+<name>Renārs Skudra</name>
+<sex>V</sex>
+<birth>1977-05-09</birth>
+<country>LV</country>
+<team>42</team>
+<card>8080033</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>62</id>
+<name>Santa Blūma</name>
+<sex>S</sex>
+<birth>1971-10-17</birth>
+<country>LV</country>
+<team>43</team>
+<card>8045115</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>63</id>
+<name>Lāsma Šlosberga</name>
+<sex>S</sex>
+<birth>1971-07-16</birth>
+<country>LV</country>
+<team>43</team>
+<card>8045080</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>65</id>
+<name>Dace Ikšele</name>
+<sex>S</sex>
+<birth>1967-02-07</birth>
+<country>LV</country>
+<team>44</team>
+<card>8662259</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>66</id>
+<name>Jānis Eimuss</name>
+<sex>V</sex>
+<birth>1967-06-23</birth>
+<country>LV</country>
+<team>44</team>
+<card>8023780</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>67</id>
+<name>Inese Vārna</name>
+<sex>S</sex>
+<birth>1985-04-12</birth>
+<country>LV</country>
+<team>45</team>
+<card>8662266</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>68</id>
+<name>Igors Jegorovs</name>
+<sex>V</sex>
+<birth>1985-09-18</birth>
+<country>LV</country>
+<team>45</team>
+<card>8023784</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>69</id>
+<name>Inta Poriķe</name>
+<sex>S</sex>
+<birth>1963-10-25</birth>
+<country>LV</country>
+<team>46</team>
+<card>8663322</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>70</id>
+<name>Māra Bolšteina</name>
+<sex>S</sex>
+<birth>1943-12-11</birth>
+<country>LV</country>
+<team>46</team>
+<card>8180111</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>71</id>
+<name>Inese Purgaile</name>
+<sex>S</sex>
+<birth>1956-10-24</birth>
+<country>LV</country>
+<team>47</team>
+<card>8653566</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>72</id>
+<name>Ilze Vabole</name>
+<sex>S</sex>
+<birth>1958-05-25</birth>
+<country>LV</country>
+<team>47</team>
+<card>682041</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>73</id>
+<name>Sandis Pētersons</name>
+<sex>V</sex>
+<birth>1981-05-24</birth>
+<country>LV</country>
+<team>48</team>
+<card>8011923</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>74</id>
+<name>Agnese Poikāne</name>
+<sex>S</sex>
+<birth>1990-02-16</birth>
+<country>LV</country>
+<team>48</team>
+<card>8011937</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>75</id>
+<name>Uģis Inka</name>
+<sex>V</sex>
+<birth>1976-11-27</birth>
+<country>LV</country>
+<team>49</team>
+<card>7200141</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>76</id>
+<name>Evija Grīnmane</name>
+<sex>S</sex>
+<birth>1982-04-24</birth>
+<country>LV</country>
+<team>49</team>
+<card>8005546</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>77</id>
+<name>Niks Smelters</name>
+<sex>V</sex>
+<birth>1999-07-06</birth>
+<country>LV</country>
+<team>51</team>
+<card>8651745</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>78</id>
+<name>Einārs Sprūģis</name>
+<sex>V</sex>
+<birth>1987-03-29</birth>
+<country>LV</country>
+<team>51</team>
+<card>8651777</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>79</id>
+<name>Ints Bruņenieks</name>
+<sex>V</sex>
+<birth>1976-09-07</birth>
+<country>LV</country>
+<team>52</team>
+<card>8657252</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>80</id>
+<name>Gundega Bruņeniece</name>
+<sex>S</sex>
+<birth>1981-02-10</birth>
+<country>LV</country>
+<team>52</team>
+<card>8653200</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>81</id>
+<name>Sarma Novicāne Lazdāne</name>
+<sex>S</sex>
+<birth>1974-12-05</birth>
+<country>LV</country>
+<team>54</team>
+<card>8651771</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>82</id>
+<name>Anita Saulīte</name>
+<sex>S</sex>
+<birth>1976-10-07</birth>
+<country>LV</country>
+<team>54</team>
+<card>8651747</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>83</id>
+<name>Anžela Šapovalova</name>
+<sex>S</sex>
+<birth>1978-10-07</birth>
+<country>LV</country>
+<team>54</team>
+<card>8061507</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>84</id>
+<name>Ilze Krēmere</name>
+<sex>S</sex>
+<birth>1976-12-20</birth>
+<country>LV</country>
+<team>55</team>
+<card>8449098</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>85</id>
+<name>Ieva Simsone</name>
+<sex>S</sex>
+<birth>1976-12-09</birth>
+<country>LV</country>
+<team>55</team>
+<card>8333455</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>86</id>
+<name>Jānis Bormeisters</name>
+<sex>V</sex>
+<birth>1985-04-13</birth>
+<country>LV</country>
+<team>58</team>
+<card>1602351</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>87</id>
+<name>Ilvija Bormeistere</name>
+<sex>S</sex>
+<birth>1993-03-10</birth>
+<country>LV</country>
+<team>58</team>
+<card>8665540</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>88</id>
+<name>Gatis Čirka</name>
+<sex>V</sex>
+<birth>1977-01-29</birth>
+<country>LV</country>
+<team>60</team>
+<card>8202002</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>89</id>
+<name>Arnis Grasis</name>
+<sex>V</sex>
+<birth>1970-05-22</birth>
+<country>LV</country>
+<team>60</team>
+<card>8177188</card>
+<rented>0</rented>
+</runner_data>
+<runner_data>
+<id>90</id>
+<name>Elīna Andersone</name>
+<sex>S</sex>
+<birth>1976-01-01</birth>
+<country>LV</country>
+<team>70</team>
+<card>8719076</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>91</id>
+<name>Liene Buldere</name>
+<sex>S</sex>
+<birth>1979-01-01</birth>
+<country>LV</country>
+<team>70</team>
+<card>8656804</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>92</id>
+<name>Jānis Lazdāns</name>
+<sex>V</sex>
+<birth>1970-01-01</birth>
+<country>LV</country>
+<team>71</team>
+<card>8680134</card>
+<rented>1</rented>
+</runner_data>
+<runner_data>
+<id>93</id>
+<name>Elotamm Mongolian</name>
+<sex>S</sex>
+<birth>1973-01-01</birth>
+<country>EE</country>
+<team>32</team>
+<card>8524320</card>
+<rented>0</rented>
+</runner_data>
+</runners_data>

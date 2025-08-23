@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event_data>
+<eventID>Saulgriezi25_9h</eventID>
+<eventname>Saulgriezi25_9h</eventname>
+<eventplace>Tome, Ogres novads</eventplace>
+<eventlogo/>
+<eventtype>rogain</eventtype>
+<starttime>2025-06-21 19:00:00</starttime>
+<finishtime>2025-06-22 04:00:00</finishtime>
+<latetime>2025-06-22 04:30:00</latetime>
+<sunsettime>2025-06-21 22:22:00</sunsettime>
+<sunrisetime>2025-06-22 04:29:00</sunrisetime>
+<timelimit>60</timelimit>
+<timepenalty>1</timepenalty>
+<starttype>starttime</starttype>
+<penaltytype>started minute</penaltytype>
+<routetype>jpg</routetype>
+<mperpix>8.555380459574412</mperpix>
+</event_data>

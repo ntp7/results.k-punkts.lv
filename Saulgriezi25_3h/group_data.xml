@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+<group_data>
+<id>1</id>
+<group>J3</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id>2</id>
+<group>MO3</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id>3</id>
+<group>WO3</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id>4</id>
+<group>XO3</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id>5</id>
+<group>V3</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id>6</id>
+<group>SV3</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id>7</id>
+<group>FAM3-8</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id>8</id>
+<group>FAM3-14</group>
+<start>2025-06-21 19:00:00</start>
+<finish>2025-06-21 22:00:00</finish>
+<late>2025-06-21 22:30:00 </late>
+<course/>
+</group_data>
+<group_data>
+<id/>
+<group/>
+<start/>
+<finish/>
+<late/>
+<course/>
+</group_data>
+<group_data>
+<id/>
+<group/>
+<start/>
+<finish/>
+<late/>
+<course/>
+</group_data>
+<group_data>
+<id/>
+<group/>
+<start/>
+<finish/>
+<late/>
+<course/>
+</group_data>
+</groups>
