@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 18px;
+            text-align: left;
+            background-color: white;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            display: inline-flex;
+            align-items: center;
+        }
+        .arrow {
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            transition: transform 0.2s;
+        }
+        .sorted {
+            color: #f58b00;
+            transform: scale(1.5);
+        }
+        .search-container {
+            padding: 10px;
+            background-color: #f2f2f2;
+            text-align: left;
+            display: flex;
+            align-items: left;
+            flex-direction: column;
+        }
+        .search-input {
+            padding: 8px;
+            width: 300px;
+            height: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+        }
+        .highlight {
+    background-color: yellow; /* Highlight color */
+    font-weight: bold; /* Make the text bold for visibility */
+    }
+    img{
+        width: 200px;
+        height: auto;
+        padding-left: 20px;
+    }
+    .sponsors{
+        display: flex;
+
+    }
+    .redc{
+        width: 150px;
+        height: 100%;
+        padding-top: 20px;
+    }
+    @media screen and (max-width: 700px) {
+                .redc{
+        width: 120px;
+        height: 100%;
+        padding-top: 20px;
+    }
+    .dab, .lok, .org{
+            width: 160px;
+        height: 100%;
+        padding-left: 20px;
+        }
+
+        
+    }
+
+    </style>
+</head>
+<body>
+<div class="search-container">
+    <div class="sponsors"> <img class="dab" src="image/dabai.png">
+       <img class="lok" src="image/IMG_3014.png">
+       <img class="redc" src="image/IMG_3016.png">
+       <img class="org" src="image/IMG_3018.png">
+    </div>
+
+        <input type="text" id="search-input" class="search-input" placeholder="Meklēt...">
+        
+    </div>
+    <table id="participants-table">
+        <thead>
+            <tr>
+                <th id="name-header"><span class="header-container">Vārds <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+                <th id="surname-header"><span class="header-container">Uzvārds <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+                <th id="starts-header"><span class="header-container">Starts <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+                <th id="kp1-header"><span class="header-container">KP1 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+                <th id="kp2-header"><span class="header-container">KP2 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+                <th id="kp3-header"><span class="header-container">KP3 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+                <th id="finiss-header"><span class="header-container">Finišs <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+                <th id="laiks-header"><span class="header-container">Laiks <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+    import firebaseConfig from './firebaseconfig.js';
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    let currentSortedColumn = 1; 
+    let isAscending = true;
+
+// Add this in your existing <script type="module"> tag
+
+document.addEventListener('DOMContentLoaded', async () => {
+const tableBody = document.querySelector('#participants-table tbody');
+const searchInput = document.getElementById('search-input');
+
+// Fetch and render table data as before
+try {  
+
+    const q = query(collection(db, 'pieteikums100km2025'), orderBy('submissionTime'));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((docSnapshot) => {
+        const data = docSnapshot.data();
+
+            const formattedstarts = formatTime(data.starts, data.izstajies);
+            const formattedkp1 = formatTime(data.KP1, data.izstajies);
+            const formattedkp2 = formatTime(data.KP2, data.izstajies);
+            const formattedkp3 = formatTime(data.KP3, data.izstajies) ;
+            const formattedfiniss = formatTime(data.finiss, data.izstajies);
+        
+
+            // Create a row with the formatted times
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${data.vards}</td>
+                <td>${data.uzvards}</td>
+                <td data-starts="${data.starts}">${formattedstarts}</td>
+                <td data-kp1="${data.KP1}">${formattedkp1}</td>
+                <td data-kp2="${data.KP2}">${formattedkp2}</td>
+                <td data-kp3="${data.KP3}">${formattedkp3}</td>
+                <td data-finiss="${data.finiss}">${formattedfiniss}</td>
+                <td>${calculateLaiks(data.starts, data.KP1, data.KP2, data.KP3, data.finiss, data.izstajies)}</td>
+            `;
+            tableBody.appendChild(row);
+    });
+
+    sortTable(1, true); // Initial sort
+
+} catch (error) {
+    console.error("Error getting documents: ", error);
+}
+
+// Event listener for search input - triggers on every keystroke
+document.getElementById('name-header').addEventListener('click', () => toggleSort(0));
+document.getElementById('surname-header').addEventListener('click', () => toggleSort(1));
+document.getElementById('starts-header').addEventListener('click', () => toggleSort(2));
+document.getElementById('kp1-header').addEventListener('click', () => toggleSort(3));
+document.getElementById('kp2-header').addEventListener('click', () => toggleSort(4));
+document.getElementById('kp3-header').addEventListener('click', () => toggleSort(5));
+document.getElementById('finiss-header').addEventListener('click', () => toggleSort(6));
+document.getElementById('laiks-header').addEventListener('click', () => toggleSort(7));
+
+searchInput.addEventListener('keyup', () => filterTable(searchInput.value));
+});
+function calculateLaiks(starts, kp1, kp2, kp3, finiss, izstajies) {
+if ((!starts|| !kp1|| !kp2|| !kp3 || !finiss) && !izstajies) return "-";
+if (izstajies) return "DNF";
+const parseDate = (time) => {
+    const [datePart, timePart] = time.split(" ");
+    const [day, month, year] = datePart.split("/").map(Number);
+    const [hours, minutes, seconds] = timePart.split(":").map(Number);
+    return new Date(year, month - 1, day, hours, minutes, seconds);
+};
+
+const start = parseDate(starts);
+const end = parseDate(finiss);
+
+if (isNaN(start.getTime()) || isNaN(end.getTime())) return "-"; // Check if dates are valid
+
+// Calculate the difference in milliseconds
+const diffMs = end - start;
+
+// Convert milliseconds to hours and minutes
+const hours = Math.floor(diffMs / (1000 * 60 * 60));
+const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+
+return `${hours}h ${minutes}m`;
+}
+
+
+    function toggleSort(columnIndex) {
+        isAscending = currentSortedColumn === columnIndex ? !isAscending : true;
+        currentSortedColumn = columnIndex;
+        sortTable(columnIndex, isAscending);
+    }
+
+    function formatTime(time, izstajies) {
+        if (!time && !izstajies) return '-';
+        if(!time && izstajies) return 'DNF';
+        
+        const parts = time.split(' ')[1]?.split(':');
+
+        if (parts[0].startsWith('0')) return`${parts[0].substring(1)}:${parts[1]}`;
+
+        else return parts ? `${parts[0]}:${parts[1]}` : '-';
+    }
+function sortTable(columnIndex, ascending) {
+    const tbody = document.querySelector('#participants-table tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr')); // only body rows
+    resetArrows();
+
+    rows.sort((a, b) => {
+        let cellA = a.cells[columnIndex].textContent.trim();
+        let cellB = b.cells[columnIndex].textContent.trim();
+
+        if (columnIndex >= 2 && columnIndex <= 6) { // starts to finiss columns
+            const rawTimeA = a.cells[columnIndex].getAttribute(`data-kp${columnIndex-2}`);
+            const rawTimeB = b.cells[columnIndex].getAttribute(`data-kp${columnIndex-2}`);
+            return ascending ? compareTimes(rawTimeA, rawTimeB) : compareTimes(rawTimeB, rawTimeA);
+        } else if (columnIndex === 7) { // "Laiks" column
+            return ascending ? compareDuration(cellA, cellB) : compareDuration(cellB, cellA);
+        }
+
+        // Name + surname
+        return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+    });
+
+    // Re-append sorted rows into tbody
+    rows.forEach(row => tbody.appendChild(row));
+
+    updateArrow(columnIndex, ascending);
+}
+
+function compareDuration(timeA, timeB) {
+    const parseDuration = (time) => {
+        if (!time || time === '-' || time === 'DNF') return Infinity; // always last
+        const parts = time.split(' ');
+        if (parts.length < 2) return Infinity;
+
+        const hours = parseInt(parts[0]) || 0;
+        const minutes = parseInt(parts[1]) || 0;
+        return hours * 60 + minutes;
+    };
+
+    return parseDuration(timeA) - parseDuration(timeB);
+}
+
+
+
+function compareTimes(timeA, timeB) {
+    if (!timeA || timeA === '-' || timeA === 'DNF') return 1;
+    if (!timeB || timeB === '-' || timeB === 'DNF') return -1;
+
+    const parseDate = (time) => {
+        const [datePart, timePart] = time.split(" ");
+        const [day, month, year] = datePart.split("/").map(Number);
+        const [hours, minutes, seconds] = timePart.split(":").map(Number);
+        return new Date(year, month - 1, day, hours, minutes, seconds);
+    };
+
+    return parseDate(timeA) - parseDate(timeB);
+}
+
+
+
+
+    function resetArrows() {
+        document.querySelectorAll('.arrow').forEach(arrow => {
+            arrow.classList.remove('sorted');
+            arrow.style.transform = 'scale(1) rotate(0deg)';
+        });
+    }
+
+function updateArrow(columnIndex, ascending) {
+    const headers = [
+        'name-header', 'surname-header',
+        'starts-header', 'kp1-header',
+        'kp2-header', 'kp3-header',
+        'finiss-header', 'laiks-header'
+    ];
+    const headerId = headers[columnIndex];
+    const arrow = document.querySelector(`#${headerId} .arrow`);
+    arrow.classList.add('sorted');
+    arrow.style.transform = `scale(1.5) rotate(${ascending ? 0 : 180}deg)`;
+}
+
+    function filterTable(searchTerm) {
+const rows = document.querySelectorAll('#participants-table tr:not(thead tr)');
+
+// Normalize and remove diacritics from the search term
+const normalizedSearchTerm = searchTerm.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+console.log("oo");
+rows.forEach(row => {
+    console.log("row");
+
+    // Normalize and remove diacritics from the row text content
+    const textContent = row.textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+    // Check if the normalized row content includes the normalized search term
+    row.style.display = textContent.includes(normalizedSearchTerm) ? '' : 'none';
+});
+}
+
+</script>
+</html>
