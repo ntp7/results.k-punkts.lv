@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="search-container">
     <input type="text" id="search-input" class="search-input" placeholder="Meklēt...">
-    <img src="image/kpunktslogo.png" alt="Logo" class="logo">
+    <div class="info"><div class="k100">K-100 2024</div><img src="image/kpunktslogo.png" alt="Logo" class="logo"></div>
 </div>
 <table id="participants-table">
     <thead>
@@ -17,11 +17,11 @@
             <th class="row-index">Nr.p.k.</th>
             <th id="name-header"><span class="header-container">Vārds <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
             <th id="surname-header"><span class="header-container">Uzvārds <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="starts-header"><span class="header-container">Starts <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
             <th id="kp1-header"><span class="header-container">KP1 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
             <th id="kp2-header"><span class="header-container">KP2 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
             <th id="kp3-header"><span class="header-container">KP3 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="finiss-header"><span class="header-container">Finišs <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+            <th id="kp4-header"><span class="header-container">KP4 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
+            <th id="kp5-header"><span class="header-container">KP5 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
             <th id="laiks-header"><span class="header-container">Laiks <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
         </tr>
     </thead>
@@ -43,30 +43,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('search-input');
 
     try {  
-        const q = query(collection(db, 'pieteikums100km2025'), orderBy('submissionTime'));
+        const q = query(collection(db, 'pieteikums100km'), orderBy('submissionTime'));
         const querySnapshot = await getDocs(q);
 
         let rowIndex = 1;
         querySnapshot.forEach((docSnapshot) => {
             const data = docSnapshot.data();
 
-            const formattedstarts = formatTime(data.starts, data.izstajies);
             const formattedkp1 = formatTime(data.KP1, data.izstajies);
             const formattedkp2 = formatTime(data.KP2, data.izstajies);
             const formattedkp3 = formatTime(data.KP3, data.izstajies);
-            const formattedfiniss = formatTime(data.finiss, data.izstajies);
+            const formattedkp4 = formatTime(data.KP4, data.izstajies);
+            const formattedkp5 = formatTime(data.KP5, data.izstajies);
 
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td class="row-index">${rowIndex++}</td>
                 <td>${data.vards}</td>
                 <td>${data.uzvards}</td>
-                <td data-starts="${data.starts}">${formattedstarts}</td>
                 <td data-kp1="${data.KP1}">${formattedkp1}</td>
                 <td data-kp2="${data.KP2}">${formattedkp2}</td>
                 <td data-kp3="${data.KP3}">${formattedkp3}</td>
-                <td data-finiss="${data.finiss}">${formattedfiniss}</td>
-                <td>${calculateLaiks(data.starts, data.KP1, data.KP2, data.KP3, data.finiss, data.izstajies)}</td>
+                <td data-kp4="${data.KP4}">${formattedkp4}</td>
+                <td data-kp5="${data.KP5}">${formattedkp5}</td>
+                <td>${calculateLaiks(data.KP1, data.KP2, data.KP3, data.KP4, data.KP5, data.izstajies)}</td>
             `;
             tableBody.appendChild(row);
         });
@@ -78,18 +78,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('name-header').addEventListener('click', () => toggleSort(1));
     document.getElementById('surname-header').addEventListener('click', () => toggleSort(2));
-    document.getElementById('starts-header').addEventListener('click', () => toggleSort(3));
-    document.getElementById('kp1-header').addEventListener('click', () => toggleSort(4));
-    document.getElementById('kp2-header').addEventListener('click', () => toggleSort(5));
-    document.getElementById('kp3-header').addEventListener('click', () => toggleSort(6));
-    document.getElementById('finiss-header').addEventListener('click', () => toggleSort(7));
+    document.getElementById('kp1-header').addEventListener('click', () => toggleSort(3));
+    document.getElementById('kp2-header').addEventListener('click', () => toggleSort(4));
+    document.getElementById('kp3-header').addEventListener('click', () => toggleSort(5));
+    document.getElementById('kp4-header').addEventListener('click', () => toggleSort(6));
+    document.getElementById('kp5-header').addEventListener('click', () => toggleSort(7));
     document.getElementById('laiks-header').addEventListener('click', () => toggleSort(8));
 
     searchInput.addEventListener('keyup', () => filterTable(searchInput.value));
 });
 
-function calculateLaiks(starts, kp1, kp2, kp3, finiss, izstajies) {
-    if ((!starts|| !kp1|| !kp2|| !kp3 || !finiss) && !izstajies) return "-";
+function calculateLaiks(kp1, kp2, kp3, kp4, kp5, izstajies) {
+    if ((!kp1|| !kp2|| !kp3|| !kp4 || !kp5) && !izstajies) return "-";
     if (izstajies) return "DNF";
     const parseDate = (time) => {
         const [datePart, timePart] = time.split(" ");
@@ -97,8 +97,8 @@ function calculateLaiks(starts, kp1, kp2, kp3, finiss, izstajies) {
         const [hours, minutes, seconds] = timePart.split(":").map(Number);
         return new Date(year, month - 1, day, hours, minutes, seconds);
     };
-    const start = parseDate(starts);
-    const end = parseDate(finiss);
+    const start = parseDate(kp1);
+    const end = parseDate(kp5);
     if (isNaN(start.getTime()) || isNaN(end.getTime())) return "-";
     const diffMs = end - start;
     const hours = Math.floor(diffMs / (1000 * 60 * 60));
@@ -183,9 +183,9 @@ function resetArrows() {
 function updateArrow(columnIndex, ascending) {
     const headers = [
         null, 'name-header', 'surname-header',
-        'starts-header', 'kp1-header',
-        'kp2-header', 'kp3-header',
-        'finiss-header', 'laiks-header'
+        'kp1-header', 'kp2-header',
+        'kp3-header', 'kp4-header',
+        'kp5-header', 'laiks-header'
     ];
     if (!headers[columnIndex]) return;
     const headerId = headers[columnIndex];
