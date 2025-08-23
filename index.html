@@ -43,21 +43,27 @@
             color: #f58b00;
             transform: scale(1.5);
         }
-        .search-container {
-            padding: 10px;
-            background-color: #f2f2f2;
-            text-align: left;
-            display: flex;
-            align-items: left;
-            flex-direction: column;
-        }
-        .search-input {
-            padding: 8px;
-            width: 300px;
-            height: 20px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-        }
+.search-container {
+    padding: 10px;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: space-between; /* search left, logo right */
+    align-items: center;            /* vertical alignment */
+}
+
+.search-input {
+    padding: 8px;
+    width: 300px;
+    height: 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+
+.logo {
+    width: 40px;  /* adjust size */
+    height: auto;
+}
+
         .highlight {
     background-color: yellow; /* Highlight color */
     font-weight: bold; /* Make the text bold for visibility */
@@ -71,6 +77,7 @@
         display: flex;
 
     }
+    
     .redc{
         width: 150px;
         height: 100%;
@@ -102,7 +109,7 @@
     </div> -->
 
         <input type="text" id="search-input" class="search-input" placeholder="Meklēt...">
-        
+         <img src="image/kpunktslogo.png" alt="Logo" class="logo">
     </div>
     <table id="participants-table">
         <thead>
