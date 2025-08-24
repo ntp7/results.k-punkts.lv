@@ -135,11 +135,13 @@ function sortTable(columnIndex, ascending) {
         let cellA = a.cells[columnIndex].textContent.trim();
         let cellB = b.cells[columnIndex].textContent.trim();
 
-        if (columnIndex >= 3 && columnIndex <= 7) {
-            const rawTimeA = a.cells[columnIndex].getAttribute(`data-kp${columnIndex-3}`);
-            const rawTimeB = b.cells[columnIndex].getAttribute(`data-kp${columnIndex-3}`);
-            return ascending ? compareTimes(rawTimeA, rawTimeB) : compareTimes(rawTimeB, rawTimeA);
-        } else if (columnIndex === 8) {
+       if (columnIndex >= 3 && columnIndex <= 7) {
+    const kpIndex = columnIndex - 2; // KP1 = 1, KP2 = 2, ...
+    const rawTimeA = a.cells[columnIndex].getAttribute(`data-kp${kpIndex}`);
+    const rawTimeB = b.cells[columnIndex].getAttribute(`data-kp${kpIndex}`);
+    return ascending ? compareTimes(rawTimeA, rawTimeB) : compareTimes(rawTimeB, rawTimeA);
+}
+ else if (columnIndex === 8) {
             return ascending ? compareDuration(cellA, cellB) : compareDuration(cellB, cellA);
         }
         return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
