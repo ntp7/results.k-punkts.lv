@@ -88,18 +88,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     searchInput.addEventListener('keyup', () => filterTable(searchInput.value));
 });
 
-function calculateLaiks(starts, kp1, kp2, kp3, finiss, izstajies) {
-    if ((!starts|| !kp1|| !kp2|| !kp3 || !finiss) && !izstajies) return "-";
-    if (izstajies) return "DNF";
+function calculateLaiks(kp1, kp2, kp3, kp4, kp5, izstajies) {
+    // Helper: parse "DD/MM/YYYY HH:mm:ss" into Date
     const parseDate = (time) => {
+        if (!time) return null;
         const [datePart, timePart] = time.split(" ");
+        if (!datePart || !timePart) return null;
         const [day, month, year] = datePart.split("/").map(Number);
         const [hours, minutes, seconds] = timePart.split(":").map(Number);
         return new Date(year, month - 1, day, hours, minutes, seconds);
     };
-    const start = parseDate(starts);
-    const end = parseDate(finiss);
-    if (isNaN(start.getTime()) || isNaN(end.getTime())) return "-";
+
+    // --- If participant did not finish (DNF) ---
+    if (izstajies) {
+        const start = parseDate(kp1);
+        const checkpoints = [kp5, kp4, kp3, kp2, kp1]; // last known checkpoint first
+        const lastKP = checkpoints.map(parseDate).find(Boolean); // first valid checkpoint
+
+        if (!start || !lastKP) return `<span class="dnf">DNF</span>`;
+
+        const diffMs = lastKP - start;
+        const hours = Math.floor(diffMs / (1000 * 60 * 60));
+        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+
+        return `<span class="dnf">DNF</span> <span class="partial">(${hours}h ${minutes}m)</span>`;
+    }
+
+    // --- Normal finish (requires kp1 & kp5) ---
+    if (!kp1 || !kp5) return "-";
+    const start = parseDate(kp1);
+    const end = parseDate(kp5);
+    if (!start || !end) return "-";
+
     const diffMs = end - start;
     const hours = Math.floor(diffMs / (1000 * 60 * 60));
     const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
