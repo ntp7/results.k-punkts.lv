@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         let rowIndex = 1;
         querySnapshot.forEach((docSnapshot) => {
             const data = docSnapshot.data();
-
+            
+                    if (data.hide) return;
             const formattedstarts = formatTime(data.starts, data.izstajies);
             const formattedkp1 = formatTime(data.KP1, data.izstajies);
             const formattedkp2 = formatTime(data.KP2, data.izstajies);
