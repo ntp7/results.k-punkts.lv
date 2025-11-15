@@ -68,6 +68,7 @@
             display: flex;
             align-items: center;
             justify-content: left;
+            padding-top: 15px;
         }
         #brosas{
             width:100px;
