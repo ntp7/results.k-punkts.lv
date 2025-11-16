@@ -163,7 +163,7 @@ function sortTable(columnIndex, ascending) {
     return ascending ? compareTimes(rawTimeA, rawTimeB) : compareTimes(rawTimeB, rawTimeA);
 }
  else if (columnIndex === 8) {
-            return ascending ? compareDuration(cellA, cellB) : compareDuration(cellB, cellA);
+            return compareDuration(cellA, cellB, ascending);
         }
         return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
     });
@@ -183,7 +183,6 @@ function compareDuration(timeA, timeB, ascending = true) {
         if (!time || time === '-') 
             return { dnf: false, minutes: Infinity };
 
-        // Finished time: "5h 30m"
         if (!time.includes("DNF")) {
             const match = time.match(/(\d+)h\s+(\d+)m/);
             if (match) {
@@ -194,7 +193,6 @@ function compareDuration(timeA, timeB, ascending = true) {
             }
         }
 
-        // DNF (may or may not have duration): "DNF (3h 20m)"
         const match = time.match(/DNF(?:\s*\((\d+)h\s+(\d+)m\))?/);
         if (match) {
             const h = match[1] ? +match[1] : Infinity;
@@ -211,8 +209,10 @@ function compareDuration(timeA, timeB, ascending = true) {
     const a = parseDuration(timeA);
     const b = parseDuration(timeB);
 
-    // --- ALWAYS put DNF LAST ---
-    if (a.dnf !== b.dnf) return a.dnf ? 1 : -1;
+    // ✅ ALWAYS place DNF LAST whether ascending or descending
+    if (a.dnf !== b.dnf) {
+        return a.dnf ? 1 : -1;
+    }
 
     // --- Both DNFs OR both finishers ---
     return ascending 
