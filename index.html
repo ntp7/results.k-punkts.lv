@@ -178,16 +178,46 @@ function sortTable(columnIndex, ascending) {
     updateArrow(columnIndex, ascending);
 }
 
-function compareDuration(timeA, timeB) {
+function compareDuration(timeA, timeB, ascending = true) {
     const parseDuration = (time) => {
-        if (!time || time === '-' || time === 'DNF') return Infinity;
-        const parts = time.split(' ');
-        if (parts.length < 2) return Infinity;
-        const hours = parseInt(parts[0]) || 0;
-        const minutes = parseInt(parts[1]) || 0;
-        return hours * 60 + minutes;
+        if (!time || time === '-') 
+            return { dnf: false, minutes: Infinity };
+
+        // Finished time: "5h 30m"
+        if (!time.includes("DNF")) {
+            const match = time.match(/(\d+)h\s+(\d+)m/);
+            if (match) {
+                return { 
+                    dnf: false,
+                    minutes: (+match[1] * 60) + (+match[2])
+                };
+            }
+        }
+
+        // DNF (may or may not have duration): "DNF (3h 20m)"
+        const match = time.match(/DNF(?:\s*\((\d+)h\s+(\d+)m\))?/);
+        if (match) {
+            const h = match[1] ? +match[1] : Infinity;
+            const m = match[2] ? +match[2] : Infinity;
+            return { 
+                dnf: true,
+                minutes: (h * 60) + m
+            };
+        }
+
+        return { dnf: true, minutes: Infinity };
     };
-    return parseDuration(timeA) - parseDuration(timeB);
+
+    const a = parseDuration(timeA);
+    const b = parseDuration(timeB);
+
+    // --- ALWAYS put DNF LAST ---
+    if (a.dnf !== b.dnf) return a.dnf ? 1 : -1;
+
+    // --- Both DNFs OR both finishers ---
+    return ascending 
+        ? a.minutes - b.minutes 
+        : b.minutes - a.minutes;
 }
 
 function compareTimes(timeA, timeB) {
