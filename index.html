@@ -41,7 +41,7 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    let currentSortedColumn = 1; 
+    let currentSortedColumn = 2; 
     let isAscending = true;
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             tableBody.appendChild(row);
         });
 
-        sortTable(1, true); // Initial sort
+        sortTable(2, true); // Initial sort by surname
     } catch (error) {
         console.error("Error getting documents: ", error);
     }
