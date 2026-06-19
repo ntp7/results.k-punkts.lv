@@ -1,37 +1,24 @@
-        body {
+    body {
             font-family: Arial, sans-serif;
             padding: 0;
             margin: 0;
             background-color: #f2f2f2;
-            overflow: hidden;
         }
         .tables-wrapper {
             display: flex;
             gap: 20px;
-            align-items: stretch;
+            align-items: flex-start;
             padding: 10px;
-            height: calc(100vh - 140px);
         }
         .table-panel {
             flex: 1;
             min-width: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 0;
         }
         .table-title {
             margin: 0 0 8px;
             font-size: 18px;
             font-weight: 700;
             color: #6d0000;
-            flex-shrink: 0;
-        }
-        .table-scroll {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            background-color: white;
-            border: 1px solid #ddd;
         }
         table {
             width: 100%;
@@ -40,18 +27,13 @@
             text-align: left;
             background-color: white;
         }
-        thead th {
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            background-color: #f2f2f2;
-        }
         th, td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
             white-space: nowrap;
         }
         th {
+            background-color: #f2f2f2;
             cursor: pointer;
         }
         tr:hover {
@@ -70,6 +52,20 @@
         .sorted {
             color: #f58b00;
             transform: scale(1.5);
+        }
+        .search-container {
+            padding: 10px;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .search-input {
+            padding: 8px;
+            width: 300px;
+            height: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
         }
         .logo {
             width: 40px;
