@@ -6,13 +6,20 @@
         }
         .tables-wrapper {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
             align-items: flex-start;
             padding: 10px;
         }
         .table-panel {
-            flex: 1;
-            min-width: 0;
+            flex: 1 1 320px;
+            min-width: min(100%, 320px);
+            overflow-x: auto;
+            background-color: white;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
         }
         .table-title {
             margin: 0 0 8px;
@@ -22,6 +29,7 @@
         }
         table {
             width: 100%;
+            min-width: 680px;
             border-collapse: collapse;
             font-size: 18px;
             text-align: left;
@@ -117,6 +125,10 @@
         @media screen and (max-width: 900px) {
             .tables-wrapper {
                 flex-direction: column;
+            }
+            .table-panel {
+                width: 100%;
+                min-width: 100%;
             }
         }
         @media screen and (max-width: 700px) {
