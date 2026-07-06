@@ -5,27 +5,22 @@
             background-color: #f2f2f2;
         }
         .tables-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: flex-start;
+            display: block;
             padding: 10px;
         }
         .table-panel {
-            flex: 1 1 320px;
-            min-width: min(100%, 320px);
+            width: 100%;
             overflow-x: auto;
-            background-color: white;
-            padding: 12px;
             box-sizing: border-box;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
+        }
+        .table-panel.hidden {
+            display: none;
         }
         .table-title {
             margin: 0 0 8px;
             font-size: 18px;
             font-weight: 700;
-            color: #6d0000;
+            color: #ea801a;
         }
         table {
             width: 100%;
@@ -67,6 +62,31 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .toggle-group {
+            display: flex;
+            gap: 8px;
+        }
+        .toggle-btn {
+            border: 2px solid #ea801a;
+            background: white;
+            color: #ea801a;
+            padding: 8px 14px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        .toggle-btn.active {
+            background: #ea801a;
+            color: white;
+            border-color: #ea801a;
+        }
+        .toggle-btn:hover {
+            background: #ea801a;
+            color: white;
         }
         .search-input {
             padding: 8px;
@@ -123,12 +143,14 @@
             background-color: #f2f2f2;
         }
         @media screen and (max-width: 900px) {
-            .tables-wrapper {
-                flex-direction: column;
+            .search-container {
+                align-items: flex-start;
             }
-            .table-panel {
+            .toggle-group {
                 width: 100%;
-                min-width: 100%;
+            }
+            .toggle-btn {
+                flex: 1;
             }
         }
         @media screen and (max-width: 700px) {
