@@ -1,267 +1,1133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="styles.css">
+
+    <title>K-100 2024 | Rezultāti</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-        <div class="sponsors"> <img class="dab" src="image/dabai.png">
-       <img class="lok" src="image/IMG_3014.png">
-       <img class="redc" src="image/IMG_3016.png">
-       <img class="org" src="image/IMG_3018.png">
+
+    <!-- SPONSORS -->
+    <div class="sponsors">
+        <img class="dab" src="image/dabai.png" alt="">
+        <img class="lok" src="image/IMG_3014.png" alt="">
+        <img class="redc" src="image/IMG_3016.png" alt="">
+        <img class="org" src="image/IMG_3018.png" alt="">
     </div>
-<div class="search-container">
-    
-    <input type="text" id="search-input" class="search-input" placeholder="Meklēt...">
-    <div class="info"><div class="k100">K-100 2024</div><img src="image/kpunktslogo.png" alt="Logo" class="logo"></div>
-</div>
-<table id="participants-table">
-    <thead>
-        <tr>
-            <th class="row-index">Nr.p.k.</th>
-            <th id="name-header"><span class="header-container">Vārds <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="surname-header"><span class="header-container">Uzvārds <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="kp1-header"><span class="header-container">KP1 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="kp2-header"><span class="header-container">KP2 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="kp3-header"><span class="header-container">KP3 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="kp4-header"><span class="header-container">KP4 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="kp5-header"><span class="header-container">KP5 <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-            <th id="laiks-header"><span class="header-container">Laiks <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg></span></th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
-</body>
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
-    import firebaseConfig from './firebaseconfig.js';
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    let currentSortedColumn = 1; 
-    let isAscending = true;
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const tableBody = document.querySelector('#participants-table tbody');
-    const searchInput = document.getElementById('search-input');
+    <!-- SEARCH / HEADER -->
+    <div class="search-container">
 
-    try {  
-        const q = query(collection(db, 'pieteikums100km'), orderBy('submissionTime'));
-        const querySnapshot = await getDocs(q);
+        <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Meklēt..."
+        >
 
-        let rowIndex = 1;
-        querySnapshot.forEach((docSnapshot) => {
-            const data = docSnapshot.data();
+        <div class="info">
+            <div class="k100">K-100 2024</div>
 
-            const formattedkp1 = formatTime(data.KP1, data.izstajies);
-            const formattedkp2 = formatTime(data.KP2, data.izstajies);
-            const formattedkp3 = formatTime(data.KP3, data.izstajies);
-            const formattedkp4 = formatTime(data.KP4, data.izstajies);
-            const formattedkp5 = formatTime(data.KP5, data.izstajies);
+            <img
+                src="image/kpunktslogo.png"
+                alt="K-PUNKTS"
+                class="logo"
+            >
+        </div>
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td class="row-index">${rowIndex++}</td>
-                <td>${data.vards}</td>
-                <td>${data.uzvards}</td>
-                <td data-kp1="${data.KP1}">${formattedkp1}</td>
-                <td data-kp2="${data.KP2}">${formattedkp2}</td>
-                <td data-kp3="${data.KP3}">${formattedkp3}</td>
-                <td data-kp4="${data.KP4}">${formattedkp4}</td>
-                <td data-kp5="${data.KP5}">${formattedkp5}</td>
-                <td>${calculateLaiks(data.KP1, data.KP2, data.KP3, data.KP4, data.KP5, data.izstajies)}</td>
-            `;
-            tableBody.appendChild(row);
+    </div>
+
+
+    <!-- RESULTS TABLE -->
+    <table id="participants-table">
+
+        <thead>
+            <tr>
+
+                <th class="row-index">
+                    Nr.p.k.
+                </th>
+
+                <th id="name-header">
+                    <span class="header-container">
+                        Vārds
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+                <th id="surname-header">
+                    <span class="header-container">
+                        Uzvārds
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+                <th id="kp1-header">
+                    <span class="header-container">
+                        KP1
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+                <th id="kp2-header">
+                    <span class="header-container">
+                        KP2
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+                <th id="kp3-header">
+                    <span class="header-container">
+                        KP3
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+                <th id="kp4-header">
+                    <span class="header-container">
+                        KP4
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+                <th id="kp5-header">
+                    <span class="header-container">
+                        KP5
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+                <th id="laiks-header">
+                    <span class="header-container">
+                        Laiks
+                        <svg class="arrow" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16l-6-6h12z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </span>
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+
+    </table>
+
+
+    <script type="module">
+
+        // =========================================================
+        // FIREBASE
+        // =========================================================
+
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+
+        import {
+            getFirestore,
+            collection,
+            getDocs
+        } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+
+
+        // Normal Firebase WEB configuration.
+        // This is frontend configuration, not an Admin credential.
+        const firebaseConfig = {
+            apiKey: "AIzaSyBMb0jBPIDPdKJhvw8EdTT8zDIjmh9n4Uk",
+            authDomain: "kpunkts-617f1.firebaseapp.com",
+            projectId: "kpunkts-617f1",
+            storageBucket: "kpunkts-617f1.appspot.com",
+            messagingSenderId: "402643964732",
+            appId: "1:402643964732:web:5d15d7317ace4554a94439"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+
+        // =========================================================
+        // PUBLIC COLLECTION
+        // =========================================================
+
+        // IMPORTANT:
+        // This page ONLY reads the sanitized public collection.
+        //
+        // It never reads:
+        // pieteikums100km
+
+        const PUBLIC_COLLECTION = "pieteikums100km2024_public";
+
+
+        // =========================================================
+        // SORTING
+        // =========================================================
+
+        let currentSortedColumn = 1;
+        let isAscending = true;
+
+
+        // =========================================================
+        // LOAD RESULTS
+        // =========================================================
+
+        document.addEventListener("DOMContentLoaded", async () => {
+
+            const tableBody =
+                document.querySelector("#participants-table tbody");
+
+            const searchInput =
+                document.getElementById("search-input");
+
+
+            try {
+
+                const querySnapshot = await getDocs(
+                    collection(db, PUBLIC_COLLECTION)
+                );
+
+
+                querySnapshot.forEach((docSnapshot) => {
+
+                    const data = docSnapshot.data();
+
+                    const row = createParticipantRow(data);
+
+                    tableBody.appendChild(row);
+
+                });
+
+
+                // Initial alphabetical sort by first name.
+                sortTable(1, true);
+
+
+            } catch (error) {
+
+                console.error(
+                    "Error loading public results:",
+                    error
+                );
+
+            }
+
+
+            // SORTING
+
+            document
+                .getElementById("name-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(1)
+                );
+
+            document
+                .getElementById("surname-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(2)
+                );
+
+            document
+                .getElementById("kp1-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(3)
+                );
+
+            document
+                .getElementById("kp2-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(4)
+                );
+
+            document
+                .getElementById("kp3-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(5)
+                );
+
+            document
+                .getElementById("kp4-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(6)
+                );
+
+            document
+                .getElementById("kp5-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(7)
+                );
+
+            document
+                .getElementById("laiks-header")
+                .addEventListener(
+                    "click",
+                    () => toggleSort(8)
+                );
+
+
+            // SEARCH
+
+            searchInput.addEventListener(
+                "input",
+                () => filterTable(searchInput.value)
+            );
+
         });
 
-        sortTable(1, true); // Initial sort
-    } catch (error) {
-        console.error("Error getting documents: ", error);
-    }
 
-    document.getElementById('name-header').addEventListener('click', () => toggleSort(1));
-    document.getElementById('surname-header').addEventListener('click', () => toggleSort(2));
-    document.getElementById('kp1-header').addEventListener('click', () => toggleSort(3));
-    document.getElementById('kp2-header').addEventListener('click', () => toggleSort(4));
-    document.getElementById('kp3-header').addEventListener('click', () => toggleSort(5));
-    document.getElementById('kp4-header').addEventListener('click', () => toggleSort(6));
-    document.getElementById('kp5-header').addEventListener('click', () => toggleSort(7));
-    document.getElementById('laiks-header').addEventListener('click', () => toggleSort(8));
+        // =========================================================
+        // CREATE PARTICIPANT ROW
+        // =========================================================
 
-    searchInput.addEventListener('keyup', () => filterTable(searchInput.value));
-});
+        function createParticipantRow(data) {
 
-function calculateLaiks(kp1, kp2, kp3, kp4, kp5, izstajies) {
-    // Helper: parse "DD/MM/YYYY HH:mm:ss" into Date
-    const parseDate = (time) => {
-        if (!time) return null;
-        const [datePart, timePart] = time.split(" ");
-        if (!datePart || !timePart) return null;
-        const [day, month, year] = datePart.split("/").map(Number);
-        const [hours, minutes, seconds] = timePart.split(":").map(Number);
-        return new Date(year, month - 1, day, hours, minutes, seconds);
-    };
-
-    // --- If participant did not finish (DNF) ---
-    if (izstajies) {
-        const start = parseDate(kp1);
-        const checkpoints = [kp5, kp4, kp3, kp2, kp1]; // last known checkpoint first
-        const lastKP = checkpoints.map(parseDate).find(Boolean); // first valid checkpoint
-
-        if (!start || !lastKP) return `<span class="dnf">DNF</span>`;
-
-        const diffMs = lastKP - start;
-        const hours = Math.floor(diffMs / (1000 * 60 * 60));
-        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-
-        return `<span class="dnf">DNF</span> <span class="partial">(${hours}h ${minutes}m)</span>`;
-    }
-
-    // --- Normal finish (requires kp1 & kp5) ---
-    if (!kp1 || !kp5) return "-";
-    const start = parseDate(kp1);
-    const end = parseDate(kp5);
-    if (!start || !end) return "-";
-
-    const diffMs = end - start;
-    const hours = Math.floor(diffMs / (1000 * 60 * 60));
-    const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-    return `${hours}h ${minutes}m`;
-}
+            const row = document.createElement("tr");
 
 
-function toggleSort(columnIndex) {
-    isAscending = currentSortedColumn === columnIndex ? !isAscending : true;
-    currentSortedColumn = columnIndex;
-    sortTable(columnIndex, isAscending);
-}
+            // NUMBER
+            const numberCell =
+                document.createElement("td");
 
-function formatTime(time, izstajies) {
-    if (!time && !izstajies) return '-';
-    if(!time && izstajies) return 'DNF';
-    const parts = time.split(' ')[1]?.split(':');
-    if (parts[0].startsWith('0')) return`${parts[0].substring(1)}:${parts[1]}`;
-    else return parts ? `${parts[0]}:${parts[1]}` : '-';
-}
+            numberCell.className = "row-index";
+            numberCell.textContent = "0";
 
-function sortTable(columnIndex, ascending) {
-    const tbody = document.querySelector('#participants-table tbody');
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    resetArrows();
+            row.appendChild(numberCell);
 
-    rows.sort((a, b) => {
-        let cellA = a.cells[columnIndex].textContent.trim();
-        let cellB = b.cells[columnIndex].textContent.trim();
 
-       if (columnIndex >= 3 && columnIndex <= 7) {
-    const kpIndex = columnIndex - 2; // KP1 = 1, KP2 = 2, ...
-    const rawTimeA = a.cells[columnIndex].getAttribute(`data-kp${kpIndex}`);
-    const rawTimeB = b.cells[columnIndex].getAttribute(`data-kp${kpIndex}`);
-    return ascending ? compareTimes(rawTimeA, rawTimeB) : compareTimes(rawTimeB, rawTimeA);
-}
- else if (columnIndex === 8) {
-            return compareDuration(cellA, cellB, ascending);
+            // FIRST NAME
+            const nameCell =
+                document.createElement("td");
+
+            nameCell.textContent =
+                data.vards || "";
+
+            row.appendChild(nameCell);
+
+
+            // SURNAME
+            const surnameCell =
+                document.createElement("td");
+
+            surnameCell.textContent =
+                data.uzvards || "";
+
+            row.appendChild(surnameCell);
+
+
+            // KP1
+            row.appendChild(
+                createCheckpointCell(
+                    "kp1",
+                    data.KP1,
+                    data.izstajies
+                )
+            );
+
+
+            // KP2
+            row.appendChild(
+                createCheckpointCell(
+                    "kp2",
+                    data.KP2,
+                    data.izstajies
+                )
+            );
+
+
+            // KP3
+            row.appendChild(
+                createCheckpointCell(
+                    "kp3",
+                    data.KP3,
+                    data.izstajies
+                )
+            );
+
+
+            // KP4
+            row.appendChild(
+                createCheckpointCell(
+                    "kp4",
+                    data.KP4,
+                    data.izstajies
+                )
+            );
+
+
+            // KP5
+            row.appendChild(
+                createCheckpointCell(
+                    "kp5",
+                    data.KP5,
+                    data.izstajies
+                )
+            );
+
+
+            // TOTAL TIME
+            const timeCell =
+                document.createElement("td");
+
+            timeCell.innerHTML =
+                calculateLaiks(
+                    data.KP1,
+                    data.KP2,
+                    data.KP3,
+                    data.KP4,
+                    data.KP5,
+                    data.izstajies
+                );
+
+            row.appendChild(timeCell);
+
+
+            return row;
         }
-        return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
-    });
 
-    rows.forEach(row => tbody.appendChild(row));
 
-    // Recalculate Nr.p.k.
-    tbody.querySelectorAll('tr').forEach((row, index) => {
-        row.querySelector('.row-index').textContent = index + 1;
-    });
+        // =========================================================
+        // CHECKPOINT CELL
+        // =========================================================
 
-    updateArrow(columnIndex, ascending);
-}
+        function createCheckpointCell(
+            attributeName,
+            time,
+            izstajies
+        ) {
 
-function compareDuration(timeA, timeB, ascending = true) {
-    const parseDuration = (time) => {
-        if (!time || time === '-') 
-            return { dnf: false, minutes: Infinity };
+            const cell =
+                document.createElement("td");
 
-        if (!time.includes("DNF")) {
-            const match = time.match(/(\d+)h\s+(\d+)m/);
-            if (match) {
-                return { 
+            cell.dataset[attributeName] =
+                time || "";
+
+            cell.textContent =
+                formatTime(
+                    time,
+                    izstajies
+                );
+
+            return cell;
+        }
+
+
+        // =========================================================
+        // PARSE DATE
+        // =========================================================
+
+        function parseDate(time) {
+
+            if (!time) {
+                return null;
+            }
+
+            const parts =
+                time.split(" ");
+
+            if (parts.length !== 2) {
+                return null;
+            }
+
+
+            const datePart = parts[0];
+            const timePart = parts[1];
+
+
+            const dateParts =
+                datePart
+                    .split("/")
+                    .map(Number);
+
+            const timeParts =
+                timePart
+                    .split(":")
+                    .map(Number);
+
+
+            if (
+                dateParts.length !== 3 ||
+                timeParts.length < 2
+            ) {
+                return null;
+            }
+
+
+            const [
+                day,
+                month,
+                year
+            ] = dateParts;
+
+
+            const [
+                hours,
+                minutes,
+                seconds = 0
+            ] = timeParts;
+
+
+            return new Date(
+                year,
+                month - 1,
+                day,
+                hours,
+                minutes,
+                seconds
+            );
+        }
+
+
+        // =========================================================
+        // CALCULATE TOTAL TIME
+        // =========================================================
+
+        function calculateLaiks(
+            kp1,
+            kp2,
+            kp3,
+            kp4,
+            kp5,
+            izstajies
+        ) {
+
+
+            // DNF
+            if (izstajies) {
+
+                const start =
+                    parseDate(kp1);
+
+
+                const checkpoints = [
+                    kp5,
+                    kp4,
+                    kp3,
+                    kp2,
+                    kp1
+                ];
+
+
+                const lastKP =
+                    checkpoints
+                        .map(parseDate)
+                        .find(Boolean);
+
+
+                if (
+                    !start ||
+                    !lastKP
+                ) {
+
+                    return `
+                        <span class="dnf">
+                            DNF
+                        </span>
+                    `;
+                }
+
+
+                const diffMs =
+                    lastKP - start;
+
+
+                const hours =
+                    Math.floor(
+                        diffMs /
+                        (1000 * 60 * 60)
+                    );
+
+
+                const minutes =
+                    Math.floor(
+                        (
+                            diffMs %
+                            (1000 * 60 * 60)
+                        ) /
+                        (1000 * 60)
+                    );
+
+
+                return `
+                    <span class="dnf">
+                        DNF
+                    </span>
+
+                    <span class="partial">
+                        (${hours}h ${minutes}m)
+                    </span>
+                `;
+            }
+
+
+            // NORMAL FINISH
+            if (
+                !kp1 ||
+                !kp5
+            ) {
+
+                return "-";
+            }
+
+
+            const start =
+                parseDate(kp1);
+
+            const finish =
+                parseDate(kp5);
+
+
+            if (
+                !start ||
+                !finish
+            ) {
+
+                return "-";
+            }
+
+
+            const diffMs =
+                finish - start;
+
+
+            const hours =
+                Math.floor(
+                    diffMs /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (
+                        diffMs %
+                        (1000 * 60 * 60)
+                    ) /
+                    (1000 * 60)
+                );
+
+
+            return `${hours}h ${minutes}m`;
+        }
+
+
+        // =========================================================
+        // FORMAT CHECKPOINT TIME
+        // =========================================================
+
+        function formatTime(
+            time,
+            izstajies
+        ) {
+
+            if (
+                !time &&
+                !izstajies
+            ) {
+
+                return "-";
+            }
+
+
+            if (
+                !time &&
+                izstajies
+            ) {
+
+                return "DNF";
+            }
+
+
+            const parts =
+                time
+                    ?.split(" ")[1]
+                    ?.split(":");
+
+
+            if (
+                !parts ||
+                parts.length < 2
+            ) {
+
+                return "-";
+            }
+
+
+            const hours =
+                String(
+                    Number(parts[0])
+                );
+
+
+            return `${hours}:${parts[1]}`;
+        }
+
+
+        // =========================================================
+        // TOGGLE SORT
+        // =========================================================
+
+        function toggleSort(columnIndex) {
+
+            isAscending =
+                currentSortedColumn === columnIndex
+                    ? !isAscending
+                    : true;
+
+
+            currentSortedColumn =
+                columnIndex;
+
+
+            sortTable(
+                columnIndex,
+                isAscending
+            );
+        }
+
+
+        // =========================================================
+        // SORT TABLE
+        // =========================================================
+
+        function sortTable(
+            columnIndex,
+            ascending
+        ) {
+
+            const tbody =
+                document.querySelector(
+                    "#participants-table tbody"
+                );
+
+
+            const rows =
+                Array.from(
+                    tbody.querySelectorAll("tr")
+                );
+
+
+            resetArrows();
+
+
+            rows.sort((a, b) => {
+
+                const cellA =
+                    a.cells[columnIndex]
+                        .textContent
+                        .trim();
+
+                const cellB =
+                    b.cells[columnIndex]
+                        .textContent
+                        .trim();
+
+
+                // KP1 - KP5
+                if (
+                    columnIndex >= 3 &&
+                    columnIndex <= 7
+                ) {
+
+                    const kpIndex =
+                        columnIndex - 2;
+
+
+                    const rawTimeA =
+                        a.cells[columnIndex]
+                            .dataset[
+                                `kp${kpIndex}`
+                            ] || "";
+
+
+                    const rawTimeB =
+                        b.cells[columnIndex]
+                            .dataset[
+                                `kp${kpIndex}`
+                            ] || "";
+
+
+                    return ascending
+                        ? compareTimes(
+                            rawTimeA,
+                            rawTimeB
+                        )
+                        : compareTimes(
+                            rawTimeB,
+                            rawTimeA
+                        );
+                }
+
+
+                // TOTAL TIME
+                if (columnIndex === 8) {
+
+                    return compareDuration(
+                        cellA,
+                        cellB,
+                        ascending
+                    );
+                }
+
+
+                // TEXT
+                return ascending
+                    ? cellA.localeCompare(
+                        cellB,
+                        "lv"
+                    )
+                    : cellB.localeCompare(
+                        cellA,
+                        "lv"
+                    );
+            });
+
+
+            rows.forEach(
+                row =>
+                    tbody.appendChild(row)
+            );
+
+
+            // Re-number rows.
+            tbody
+                .querySelectorAll("tr")
+                .forEach(
+                    (row, index) => {
+
+                        row
+                            .querySelector(
+                                ".row-index"
+                            )
+                            .textContent =
+                                index + 1;
+
+                    }
+                );
+
+
+            updateArrow(
+                columnIndex,
+                ascending
+            );
+        }
+
+
+        // =========================================================
+        // COMPARE CHECKPOINT TIMES
+        // =========================================================
+
+        function compareTimes(
+            timeA,
+            timeB
+        ) {
+
+            const dateA =
+                parseDate(timeA);
+
+            const dateB =
+                parseDate(timeB);
+
+
+            if (
+                !dateA &&
+                !dateB
+            ) {
+
+                return 0;
+            }
+
+
+            if (!dateA) {
+                return 1;
+            }
+
+
+            if (!dateB) {
+                return -1;
+            }
+
+
+            return dateA - dateB;
+        }
+
+
+        // =========================================================
+        // COMPARE TOTAL DURATION
+        // =========================================================
+
+        function compareDuration(
+            timeA,
+            timeB,
+            ascending = true
+        ) {
+
+            const a =
+                parseDuration(timeA);
+
+            const b =
+                parseDuration(timeB);
+
+
+            // DNF always last.
+            if (
+                a.dnf !== b.dnf
+            ) {
+
+                return a.dnf
+                    ? 1
+                    : -1;
+            }
+
+
+            return ascending
+                ? a.minutes - b.minutes
+                : b.minutes - a.minutes;
+        }
+
+
+        // =========================================================
+        // PARSE DURATION
+        // =========================================================
+
+        function parseDuration(time) {
+
+            if (
+                !time ||
+                time === "-"
+            ) {
+
+                return {
                     dnf: false,
-                    minutes: (+match[1] * 60) + (+match[2])
+                    minutes: Infinity
                 };
             }
-        }
 
-        const match = time.match(/DNF(?:\s*\((\d+)h\s+(\d+)m\))?/);
-        if (match) {
-            const h = match[1] ? +match[1] : Infinity;
-            const m = match[2] ? +match[2] : Infinity;
-            return { 
+
+            if (
+                !time.includes("DNF")
+            ) {
+
+                const match =
+                    time.match(
+                        /(\d+)h\s+(\d+)m/
+                    );
+
+
+                if (match) {
+
+                    return {
+                        dnf: false,
+                        minutes:
+                            Number(match[1]) * 60 +
+                            Number(match[2])
+                    };
+                }
+            }
+
+
+            const dnfMatch =
+                time.match(
+                    /DNF(?:\s*\((\d+)h\s+(\d+)m\))?/
+                );
+
+
+            if (dnfMatch) {
+
+                const hours =
+                    dnfMatch[1]
+                        ? Number(dnfMatch[1])
+                        : Infinity;
+
+
+                const minutes =
+                    dnfMatch[2]
+                        ? Number(dnfMatch[2])
+                        : Infinity;
+
+
+                return {
+                    dnf: true,
+                    minutes:
+                        hours * 60 +
+                        minutes
+                };
+            }
+
+
+            return {
                 dnf: true,
-                minutes: (h * 60) + m
+                minutes: Infinity
             };
         }
 
-        return { dnf: true, minutes: Infinity };
-    };
 
-    const a = parseDuration(timeA);
-    const b = parseDuration(timeB);
+        // =========================================================
+        // SORT ARROWS
+        // =========================================================
 
-    // ✅ ALWAYS place DNF LAST whether ascending or descending
-    if (a.dnf !== b.dnf) {
-        return a.dnf ? 1 : -1;
-    }
+        function resetArrows() {
 
-    // --- Both DNFs OR both finishers ---
-    return ascending 
-        ? a.minutes - b.minutes 
-        : b.minutes - a.minutes;
-}
+            document
+                .querySelectorAll(".arrow")
+                .forEach((arrow) => {
+
+                    arrow
+                        .classList
+                        .remove("sorted");
 
 
+                    arrow.style.transform =
+                        "scale(1) rotate(0deg)";
+                });
+        }
 
-function compareTimes(timeA, timeB) {
-    if (!timeA || timeA === '-' || timeA === 'DNF') return 1;
-    if (!timeB || timeB === '-' || timeB === 'DNF') return -1;
-    const parseDate = (time) => {
-        const [datePart, timePart] = time.split(" ");
-        const [day, month, year] = datePart.split("/").map(Number);
-        const [hours, minutes, seconds] = timePart.split(":").map(Number);
-        return new Date(year, month - 1, day, hours, minutes, seconds);
-    };
-    return parseDate(timeA) - parseDate(timeB);
-}
 
-function resetArrows() {
-    document.querySelectorAll('.arrow').forEach(arrow => {
-        arrow.classList.remove('sorted');
-        arrow.style.transform = 'scale(1) rotate(0deg)';
-    });
-}
+        function updateArrow(
+            columnIndex,
+            ascending
+        ) {
 
-function updateArrow(columnIndex, ascending) {
-    const headers = [
-        null, 'name-header', 'surname-header',
-        'kp1-header', 'kp2-header',
-        'kp3-header', 'kp4-header',
-        'kp5-header', 'laiks-header'
-    ];
-    if (!headers[columnIndex]) return;
-    const headerId = headers[columnIndex];
-    const arrow = document.querySelector(`#${headerId} .arrow`);
-    arrow.classList.add('sorted');
-    arrow.style.transform = `scale(1.5) rotate(${ascending ? 0 : 180}deg)`;
-}
+            const headers = [
+                null,
+                "name-header",
+                "surname-header",
+                "kp1-header",
+                "kp2-header",
+                "kp3-header",
+                "kp4-header",
+                "kp5-header",
+                "laiks-header"
+            ];
 
-function filterTable(searchTerm) {
-    const rows = document.querySelectorAll('#participants-table tr:not(thead tr)');
-    const normalizedSearchTerm = searchTerm.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    rows.forEach(row => {
-        const textContent = row.textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-        row.style.display = textContent.includes(normalizedSearchTerm) ? '' : 'none';
-    });
-}
-</script>
+
+            const headerId =
+                headers[columnIndex];
+
+
+            if (!headerId) {
+                return;
+            }
+
+
+            const arrow =
+                document.querySelector(
+                    `#${headerId} .arrow`
+                );
+
+
+            if (!arrow) {
+                return;
+            }
+
+
+            arrow
+                .classList
+                .add("sorted");
+
+
+            arrow.style.transform =
+                `scale(1.5) rotate(${ascending ? 0 : 180}deg)`;
+        }
+
+
+        // =========================================================
+        // SEARCH
+        // =========================================================
+
+        function filterTable(searchTerm) {
+
+            const normalizedSearch =
+                normalizeText(searchTerm);
+
+
+            const rows =
+                document.querySelectorAll(
+                    "#participants-table tbody tr"
+                );
+
+
+            rows.forEach((row) => {
+
+                const rowText =
+                    normalizeText(
+                        row.textContent
+                    );
+
+
+                row.style.display =
+                    rowText.includes(
+                        normalizedSearch
+                    )
+                        ? ""
+                        : "none";
+            });
+        }
+
+
+        function normalizeText(value) {
+
+            return String(value)
+                .normalize("NFD")
+                .replace(
+                    /[\u0300-\u036f]/g,
+                    ""
+                )
+                .toLowerCase();
+        }
+
+    </script>
+
+</body>
+
 </html>

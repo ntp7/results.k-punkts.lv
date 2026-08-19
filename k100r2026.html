@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>K-100 2026 | Dalībnieki</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         SPONSORS
+         ========================================================= -->
+
+    <div class="sponsors">
+
+        <img
+            class="company"
+            id="kpunkts"
+            src="spons/kpunkts.png"
+            alt=""
+        >
+
+        <img
+            class="company"
+            id="ezis"
+            src="spons/ezis.png"
+            alt=""
+        >
+
+        <img
+            class="company"
+            id="bauskas"
+            src="spons/bauskas.png"
+            alt=""
+        >
+
+        <img
+            class="company"
+            id="antali"
+            src="spons/antali.png"
+            alt=""
+        >
+
+        <img
+            class="company"
+            id="jolly"
+            src="spons/jolly.png"
+            alt=""
+        >
+
+    </div>
+
+
+
+    <!-- =========================================================
+         SEARCH + DISTANCE TOGGLE
+         ========================================================= -->
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Meklēt..."
+        >
+
+
+        <div
+            class="toggle-group"
+            role="tablist"
+            aria-label="Distance"
+        >
+
+            <button
+                type="button"
+                class="toggle-btn active"
+                data-target="100km"
+            >
+                100km
+            </button>
+
+            <button
+                type="button"
+                class="toggle-btn"
+                data-target="other"
+            >
+                50km
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         TABLES
+         ========================================================= -->
+
+    <div class="tables-wrapper">
+
+
+        <!-- =====================================================
+             100 KM
+             ===================================================== -->
+
+        <section
+            class="table-panel active"
+            data-table="100km"
+        >
+
+            <h2 class="table-title">
+                100km Dalībnieki
+            </h2>
+
+
+            <table
+                id="participants-table-100km"
+                class="results-table"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th class="row-index">
+                            Nr.p.k.
+                        </th>
+
+
+                        <th id="name-header-100km">
+
+                            <span class="header-container">
+
+                                Vārds
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="surname-header-100km">
+
+                            <span class="header-container">
+
+                                Uzvārds
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="starts-header-100km">
+
+                            <span class="header-container">
+
+                                Starts
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="kp1-header-100km">
+
+                            <span class="header-container">
+
+                                KP1
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="kp2-header-100km">
+
+                            <span class="header-container">
+
+                                KP2
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="kp3-header-100km">
+
+                            <span class="header-container">
+
+                                KP3
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="finiss-header-100km">
+
+                            <span class="header-container">
+
+                                Finišs
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="laiks-header-100km">
+
+                            <span class="header-container">
+
+                                Laiks
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody></tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             50 KM
+             ===================================================== -->
+
+        <section
+            class="table-panel hidden"
+            data-table="other"
+        >
+
+            <h2 class="table-title">
+                50km Dalībnieki
+            </h2>
+
+
+            <table
+                id="participants-table-other"
+                class="results-table"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th class="row-index">
+                            Nr.p.k.
+                        </th>
+
+
+                        <th id="name-header-other">
+
+                            <span class="header-container">
+
+                                Vārds
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="surname-header-other">
+
+                            <span class="header-container">
+
+                                Uzvārds
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="starts-header-other">
+
+                            <span class="header-container">
+
+                                Starts
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="kp1-header-other">
+
+                            <span class="header-container">
+
+                                KP1
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="kp2-header-other">
+
+                            <span class="header-container">
+
+                                Finišs
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+
+                        <th id="laiks-header-other">
+
+                            <span class="header-container">
+
+                                Laiks
+
+                                <svg
+                                    class="arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 16l-6-6h12z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+
+                            </span>
+
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody></tbody>
+
+            </table>
+
+        </section>
+
+    </div>
+
+
+
+<script type="module">
+
+
+    // =========================================================
+    // FIREBASE
+    // =========================================================
+
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        getDocs
+    } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+
+
+    // Normal Firebase WEB configuration.
+    // Safe to expose in frontend code.
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyBMb0jBPIDPdKJhvw8EdTT8zDIjmh9n4Uk",
+
+        authDomain:
+            "kpunkts-617f1.firebaseapp.com",
+
+        projectId:
+            "kpunkts-617f1",
+
+        storageBucket:
+            "kpunkts-617f1.appspot.com",
+
+        messagingSenderId:
+            "402643964732",
+
+        appId:
+            "1:402643964732:web:5d15d7317ace4554a94439"
+
+    };
+
+
+    const app =
+        initializeApp(firebaseConfig);
+
+
+    const db =
+        getFirestore(app);
+
+
+    // =========================================================
+    // PUBLIC COLLECTION
+    // =========================================================
+    //
+    // IMPORTANT:
+    //
+    // This page ONLY reads:
+    //
+    // pieteikums100km2026_public
+    //
+    // It NEVER reads:
+    //
+    // pieteikums100km2026
+    //
+    // =========================================================
+
+    const PUBLIC_COLLECTION =
+        "pieteikums100km2026_public";
+
+
+    // =========================================================
+    // SORT STATE
+    // =========================================================
+
+    const sortStates = {
+
+        "100km": {
+            columnIndex: 2,
+            ascending: true
+        },
+
+        "other": {
+            columnIndex: 2,
+            ascending: true
+        }
+
+    };
+
+
+    // =========================================================
+    // INITIALIZE
+    // =========================================================
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        async () => {
+
+
+            const table100Body =
+                document.querySelector(
+                    "#participants-table-100km tbody"
+                );
+
+
+            const tableOtherBody =
+                document.querySelector(
+                    "#participants-table-other tbody"
+                );
+
+
+            const searchInput =
+                document.getElementById(
+                    "search-input"
+                );
+
+
+            setupTableToggle();
+
+
+            try {
+
+
+                // -------------------------------------------------
+                // READ ONLY PUBLIC COLLECTION
+                // -------------------------------------------------
+
+                const querySnapshot =
+                    await getDocs(
+                        collection(
+                            db,
+                            PUBLIC_COLLECTION
+                        )
+                    );
+
+
+                querySnapshot.forEach(
+                    (docSnapshot) => {
+
+                        const data =
+                            docSnapshot.data();
+
+
+                        // ------------------------------------------------
+                        // HIDE FLAG
+                        // ------------------------------------------------
+                        //
+                        // If you want this functionality to remain,
+                        // include "hide" in your public collection.
+                        //
+                        // hide is not sensitive information.
+                        // It simply controls whether a record is shown.
+
+                        if (data.hide === true) {
+                            return;
+                        }
+
+
+                        const row =
+                            createParticipantRow(
+                                data
+                            );
+
+
+                        if (!row) {
+                            return;
+                        }
+
+
+                        if (
+                            row.dataset.group ===
+                            "100km"
+                        ) {
+
+                            table100Body.appendChild(row);
+
+                        } else {
+
+                            tableOtherBody.appendChild(row);
+
+                        }
+
+                    }
+                );
+
+
+                // Initial sorting.
+
+                sortTable(
+                    "100km",
+                    2,
+                    true
+                );
+
+
+                sortTable(
+                    "other",
+                    2,
+                    true
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Error loading public participants:",
+                    error
+                );
+
+            }
+
+
+            // =====================================================
+            // 100 KM SORT BUTTONS
+            // =====================================================
+
+            document
+                .getElementById(
+                    "name-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            1
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "surname-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            2
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "starts-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            3
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "kp1-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            4
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "kp2-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            5
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "kp3-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            6
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "finiss-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            7
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "laiks-header-100km"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "100km",
+                            8
+                        )
+                );
+
+
+            // =====================================================
+            // 50 KM SORT BUTTONS
+            // =====================================================
+
+            document
+                .getElementById(
+                    "name-header-other"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "other",
+                            1
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "surname-header-other"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "other",
+                            2
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "starts-header-other"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "other",
+                            3
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "kp1-header-other"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "other",
+                            4
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "kp2-header-other"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "other",
+                            5
+                        )
+                );
+
+
+            document
+                .getElementById(
+                    "laiks-header-other"
+                )
+                .addEventListener(
+                    "click",
+                    () =>
+                        toggleSort(
+                            "other",
+                            6
+                        )
+                );
+
+
+            // =====================================================
+            // SEARCH
+            // =====================================================
+
+            searchInput.addEventListener(
+                "input",
+                () =>
+                    filterTable(
+                        searchInput.value
+                    )
+            );
+
+        }
+    );
+
+
+    // =========================================================
+    // DISTANCE TOGGLE
+    // =========================================================
+
+    function setupTableToggle() {
+
+        const buttons =
+            document.querySelectorAll(
+                ".toggle-btn"
+            );
+
+
+        const panels =
+            document.querySelectorAll(
+                ".table-panel"
+            );
+
+
+        buttons.forEach(
+            (button) => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const target =
+                            button.dataset.target;
+
+
+                        buttons.forEach(
+                            (btn) => {
+
+                                btn.classList.toggle(
+                                    "active",
+                                    btn === button
+                                );
+
+                            }
+                        );
+
+
+                        panels.forEach(
+                            (panel) => {
+
+                                const isActive =
+                                    panel.dataset.table ===
+                                    target;
+
+
+                                panel.classList.toggle(
+                                    "active",
+                                    isActive
+                                );
+
+
+                                panel.classList.toggle(
+                                    "hidden",
+                                    !isActive
+                                );
+
+                            }
+                        );
+
+
+                        filterTable(
+                            document
+                                .getElementById(
+                                    "search-input"
+                                )
+                                .value
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    // =========================================================
+    // CREATE PARTICIPANT ROW
+    // =========================================================
+
+    function createParticipantRow(
+        data
+    ) {
+
+
+        const distance =
+            normalizeDistance(
+                data.distance
+            );
+
+
+        const is100km =
+            distance === 100;
+
+
+        const formattedStarts =
+            formatTime(
+                data.starts,
+                data.izstajies
+            );
+
+
+        const formattedKP1 =
+            formatTime(
+                data.KP1,
+                data.izstajies
+            );
+
+
+        const formattedKP2 =
+            formatTime(
+                data.KP2,
+                data.izstajies
+            );
+
+
+        const formattedKP3 =
+            formatTime(
+                data.KP3,
+                data.izstajies
+            );
+
+
+        const formattedFiniss =
+            formatTime(
+                data.finiss,
+                data.izstajies
+            );
+
+
+        const row =
+            document.createElement(
+                "tr"
+            );
+
+
+        row.dataset.group =
+            is100km
+                ? "100km"
+                : "other";
+
+
+        // =====================================================
+        // 100 KM ROW
+        // =====================================================
+
+        if (is100km) {
+
+
+            // Number
+            appendTextCell(
+                row,
+                "1",
+                "row-index"
+            );
+
+
+            // First name
+            appendTextCell(
+                row,
+                data.vards || ""
+            );
+
+
+            // Surname
+            appendTextCell(
+                row,
+                data.uzvards || ""
+            );
+
+
+            // Starts
+            appendTimeCell(
+                row,
+                "starts",
+                data.starts,
+                formattedStarts
+            );
+
+
+            // KP1
+            appendTimeCell(
+                row,
+                "kp1",
+                data.KP1,
+                formattedKP1
+            );
+
+
+            // KP2
+            appendTimeCell(
+                row,
+                "kp2",
+                data.KP2,
+                formattedKP2
+            );
+
+
+            // KP3
+            appendTimeCell(
+                row,
+                "kp3",
+                data.KP3,
+                formattedKP3
+            );
+
+
+            // Finish
+            appendTimeCell(
+                row,
+                "finiss",
+                data.finiss,
+                formattedFiniss
+            );
+
+
+            // Total time
+            const totalTime =
+                document.createElement(
+                    "td"
+                );
+
+
+            totalTime.innerHTML =
+                calculateFullLaiks(
+                    data.starts,
+                    data.KP1,
+                    data.KP2,
+                    data.KP3,
+                    data.finiss,
+                    data.izstajies
+                );
+
+
+            row.appendChild(
+                totalTime
+            );
+
+
+        } else {
+
+
+            // =================================================
+            // 50 KM ROW
+            // =================================================
+
+
+            // Number
+            appendTextCell(
+                row,
+                "1",
+                "row-index"
+            );
+
+
+            // First name
+            appendTextCell(
+                row,
+                data.vards || ""
+            );
+
+
+            // Surname
+            appendTextCell(
+                row,
+                data.uzvards || ""
+            );
+
+
+            // Starts
+            appendTimeCell(
+                row,
+                "starts",
+                data.starts,
+                formattedStarts
+            );
+
+
+            // KP1
+            appendTimeCell(
+                row,
+                "kp1",
+                data.KP1,
+                formattedKP1
+            );
+
+
+            // Finish / KP2
+            appendTimeCell(
+                row,
+                "kp2",
+                data.KP2,
+                formattedKP2
+            );
+
+
+            // Total time
+            const totalTime =
+                document.createElement(
+                    "td"
+                );
+
+
+            totalTime.innerHTML =
+                calculateShortLaiks(
+                    data.starts,
+                    data.KP1,
+                    data.KP2
+                );
+
+
+            row.appendChild(
+                totalTime
+            );
+
+        }
+
+
+        return row;
+
+    }
+
+
+    // =========================================================
+    // TEXT CELL
+    // =========================================================
+
+    function appendTextCell(
+        row,
+        value,
+        className = ""
+    ) {
+
+        const cell =
+            document.createElement(
+                "td"
+            );
+
+
+        if (className) {
+            cell.className =
+                className;
+        }
+
+
+        cell.textContent =
+            value;
+
+
+        row.appendChild(
+            cell
+        );
+
+    }
+
+
+    // =========================================================
+    // TIME CELL
+    // =========================================================
+
+    function appendTimeCell(
+        row,
+        fieldName,
+        rawValue,
+        displayValue
+    ) {
+
+        const cell =
+            document.createElement(
+                "td"
+            );
+
+
+        cell.dataset[fieldName] =
+            rawValue || "";
+
+
+        cell.textContent =
+            displayValue;
+
+
+        row.appendChild(
+            cell
+        );
+
+    }
+
+
+    // =========================================================
+    // NORMALIZE DISTANCE
+    // =========================================================
+
+    function normalizeDistance(
+        distance
+    ) {
+
+        if (
+            distance === null ||
+            distance === undefined
+        ) {
+
+            return null;
+
+        }
+
+
+        const normalized =
+            String(distance)
+                .toLowerCase()
+                .replace(
+                    /\s+/g,
+                    ""
+                );
+
+
+        if (
+            normalized.includes("100") &&
+            normalized.includes("km")
+        ) {
+
+            return 100;
+
+        }
+
+
+        if (
+            /^100$/.test(
+                normalized.replace(
+                    "km",
+                    ""
+                )
+            )
+        ) {
+
+            return 100;
+
+        }
+
+
+        const match =
+            normalized.match(
+                /(\d+)/
+            );
+
+
+        return match
+            ? Number(match[1])
+            : null;
+
+    }
+
+
+    // =========================================================
+    // CALCULATE FULL 100 KM TIME
+    // =========================================================
+
+    function calculateFullLaiks(
+        starts,
+        kp1,
+        kp2,
+        kp3,
+        finish,
+        izstajies
+    ) {
+
+
+        // -----------------------------------------------------
+        // Parse date
+        // -----------------------------------------------------
+
+        const parseDate =
+            (time) => {
+
+                if (!time) {
+                    return null;
+                }
+
+
+                const parts =
+                    time.split(" ");
+
+
+                if (
+                    parts.length !== 2
+                ) {
+
+                    return null;
+
+                }
+
+
+                const dateParts =
+                    parts[0]
+                        .split("/")
+                        .map(Number);
+
+
+                const timeParts =
+                    parts[1]
+                        .split(":")
+                        .map(Number);
+
+
+                if (
+                    dateParts.length !== 3 ||
+                    timeParts.length < 2
+                ) {
+
+                    return null;
+
+                }
+
+
+                return new Date(
+                    dateParts[2],
+                    dateParts[1] - 1,
+                    dateParts[0],
+                    timeParts[0],
+                    timeParts[1],
+                    timeParts[2] || 0
+                );
+
+            };
+
+
+        // -----------------------------------------------------
+        // DNF
+        // -----------------------------------------------------
+
+        if (izstajies) {
+
+
+            const start =
+                parseDate(
+                    starts
+                );
+
+
+            const checkpoints = [
+                finish,
+                kp3,
+                kp2,
+                kp1,
+                starts
+            ];
+
+
+            const lastKP =
+                checkpoints
+                    .map(parseDate)
+                    .find(Boolean);
+
+
+            if (
+                !start ||
+                !lastKP
+            ) {
+
+                return `
+                    <span class="dnf">
+                        DNF
+                    </span>
+                `;
+
+            }
+
+
+            const diffMs =
+                lastKP - start;
+
+
+            const hours =
+                Math.floor(
+                    diffMs /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (
+                        diffMs %
+                        (1000 * 60 * 60)
+                    ) /
+                    (1000 * 60)
+                );
+
+
+            return `
+                <span class="dnf">
+                    DNF
+                </span>
+
+                <span class="partial">
+                    (${hours}h ${minutes}m)
+                </span>
+            `;
+
+        }
+
+
+        // -----------------------------------------------------
+        // Normal finish
+        // -----------------------------------------------------
+
+        if (
+            !starts ||
+            !finish
+        ) {
+
+            return "-";
+
+        }
+
+
+        const start =
+            parseDate(
+                starts
+            );
+
+
+        const end =
+            parseDate(
+                finish
+            );
+
+
+        if (
+            !start ||
+            !end
+        ) {
+
+            return "-";
+
+        }
+
+
+        const diffMs =
+            end - start;
+
+
+        const hours =
+            Math.floor(
+                diffMs /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    diffMs %
+                    (1000 * 60 * 60)
+                ) /
+                (1000 * 60)
+            );
+
+
+        return `${hours}h ${minutes}m`;
+
+    }
+
+
+    // =========================================================
+    // CALCULATE SHORT 50 KM TIME
+    // =========================================================
+
+    function calculateShortLaiks(
+        starts,
+        kp1,
+        kp2
+    ) {
+
+        if (
+            !starts ||
+            !kp1 ||
+            !kp2
+        ) {
+
+            return "-";
+
+        }
+
+
+        const start =
+            parseDate(
+                starts
+            );
+
+
+        const finish =
+            parseDate(
+                kp2
+            );
+
+
+        if (
+            !start ||
+            !finish
+        ) {
+
+            return "-";
+
+        }
+
+
+        const diffMs =
+            finish - start;
+
+
+        const hours =
+            Math.floor(
+                diffMs /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    diffMs %
+                    (1000 * 60 * 60)
+                ) /
+                (1000 * 60)
+            );
+
+
+        return `${hours}h ${minutes}m`;
+
+    }
+
+
+    // =========================================================
+    // GENERAL DATE PARSER
+    // =========================================================
+
+    function parseDate(
+        time
+    ) {
+
+        if (!time) {
+            return null;
+        }
+
+
+        const parts =
+            time.split(" ");
+
+
+        if (
+            parts.length !== 2
+        ) {
+
+            return null;
+
+        }
+
+
+        const dateParts =
+            parts[0]
+                .split("/")
+                .map(Number);
+
+
+        const timeParts =
+            parts[1]
+                .split(":")
+                .map(Number);
+
+
+        if (
+            dateParts.length !== 3 ||
+            timeParts.length < 2
+        ) {
+
+            return null;
+
+        }
+
+
+        return new Date(
+            dateParts[2],
+            dateParts[1] - 1,
+            dateParts[0],
+            timeParts[0],
+            timeParts[1],
+            timeParts[2] || 0
+        );
+
+    }
+
+
+    // =========================================================
+    // FORMAT TIME
+    // =========================================================
+
+    function formatTime(
+        time,
+        izstajies
+    ) {
+
+        if (
+            !time &&
+            !izstajies
+        ) {
+
+            return "-";
+
+        }
+
+
+        if (
+            !time &&
+            izstajies
+        ) {
+
+            return "DNF";
+
+        }
+
+
+        const parts =
+            time
+                ?.split(" ")[1]
+                ?.split(":");
+
+
+        if (
+            !parts ||
+            parts.length < 2
+        ) {
+
+            return "-";
+
+        }
+
+
+        const hours =
+            String(
+                Number(parts[0])
+            );
+
+
+        return `${hours}:${parts[1]}`;
+
+    }
+
+
+    // =========================================================
+    // TOGGLE SORT
+    // =========================================================
+
+    function toggleSort(
+        tableKey,
+        columnIndex
+    ) {
+
+        const state =
+            sortStates[
+                tableKey
+            ];
+
+
+        state.ascending =
+            state.columnIndex ===
+            columnIndex
+                ? !state.ascending
+                : true;
+
+
+        state.columnIndex =
+            columnIndex;
+
+
+        sortTable(
+            tableKey,
+            columnIndex,
+            state.ascending
+        );
+
+    }
+
+
+    // =========================================================
+    // SORT TABLE
+    // =========================================================
+
+    function sortTable(
+        tableKey,
+        columnIndex,
+        ascending
+    ) {
+
+        const tbody =
+            document.querySelector(
+                tableKey === "100km"
+                    ? "#participants-table-100km tbody"
+                    : "#participants-table-other tbody"
+            );
+
+
+        const rows =
+            Array.from(
+                tbody.querySelectorAll(
+                    "tr"
+                )
+            );
+
+
+        resetArrows();
+
+
+        rows.sort(
+            (a, b) => {
+
+                const cellA =
+                    a.cells[columnIndex]
+                        .textContent
+                        .trim();
+
+
+                const cellB =
+                    b.cells[columnIndex]
+                        .textContent
+                        .trim();
+
+
+                // =============================================
+                // 100 KM
+                // =============================================
+
+                if (
+                    tableKey === "100km"
+                ) {
+
+
+                    if (
+                        columnIndex >= 3 &&
+                        columnIndex <= 7
+                    ) {
+
+                        const rawTimeA =
+                            getRawTimeValue(
+                                a,
+                                columnIndex,
+                                tableKey
+                            );
+
+
+                        const rawTimeB =
+                            getRawTimeValue(
+                                b,
+                                columnIndex,
+                                tableKey
+                            );
+
+
+                        return ascending
+                            ? compareTimes(
+                                rawTimeA,
+                                rawTimeB
+                            )
+                            : compareTimes(
+                                rawTimeB,
+                                rawTimeA
+                            );
+
+                    }
+
+
+                    if (
+                        columnIndex === 8
+                    ) {
+
+                        return compareDuration(
+                            cellA,
+                            cellB,
+                            ascending
+                        );
+
+                    }
+
+                }
+
+
+                // =============================================
+                // 50 KM
+                // =============================================
+
+                if (
+                    tableKey === "other"
+                ) {
+
+
+                    if (
+                        columnIndex >= 3 &&
+                        columnIndex <= 5
+                    ) {
+
+                        const rawTimeA =
+                            getRawTimeValue(
+                                a,
+                                columnIndex,
+                                tableKey
+                            );
+
+
+                        const rawTimeB =
+                            getRawTimeValue(
+                                b,
+                                columnIndex,
+                                tableKey
+                            );
+
+
+                        return ascending
+                            ? compareTimes(
+                                rawTimeA,
+                                rawTimeB
+                            )
+                            : compareTimes(
+                                rawTimeB,
+                                rawTimeA
+                            );
+
+                    }
+
+
+                    if (
+                        columnIndex === 6
+                    ) {
+
+                        return compareDuration(
+                            cellA,
+                            cellB,
+                            ascending
+                        );
+
+                    }
+
+                }
+
+
+                // =============================================
+                // TEXT
+                // =============================================
+
+                return ascending
+
+                    ? cellA.localeCompare(
+                        cellB,
+                        "lv"
+                    )
+
+                    : cellB.localeCompare(
+                        cellA,
+                        "lv"
+                    );
+
+            }
+        );
+
+
+        rows.forEach(
+            row =>
+                tbody.appendChild(
+                    row
+                )
+        );
+
+
+        // Re-number rows.
+
+        tbody
+            .querySelectorAll(
+                "tr"
+            )
+            .forEach(
+                (row, index) => {
+
+                    row
+                        .querySelector(
+                            ".row-index"
+                        )
+                        .textContent =
+                            index + 1;
+
+                }
+            );
+
+
+        updateArrow(
+            tableKey,
+            columnIndex,
+            ascending
+        );
+
+    }
+
+
+    // =========================================================
+    // GET RAW TIME VALUE
+    // =========================================================
+
+    function getRawTimeValue(
+        row,
+        columnIndex,
+        tableKey
+    ) {
+
+        if (
+            columnIndex === 3
+        ) {
+
+            return (
+                row.cells[3]
+                    .dataset.starts ||
+                ""
+            );
+
+        }
+
+
+        if (
+            columnIndex === 4
+        ) {
+
+            return (
+                row.cells[4]
+                    .dataset.kp1 ||
+                ""
+            );
+
+        }
+
+
+        if (
+            columnIndex === 5
+        ) {
+
+            return (
+                row.cells[5]
+                    .dataset.kp2 ||
+                ""
+            );
+
+        }
+
+
+        if (
+            columnIndex === 6 &&
+            tableKey === "100km"
+        ) {
+
+            return (
+                row.cells[6]
+                    .dataset.kp3 ||
+                ""
+            );
+
+        }
+
+
+        if (
+            columnIndex === 7 &&
+            tableKey === "100km"
+        ) {
+
+            return (
+                row.cells[7]
+                    .dataset.finiss ||
+                ""
+            );
+
+        }
+
+
+        return "";
+
+    }
+
+
+    // =========================================================
+    // COMPARE TIMES
+    // =========================================================
+
+    function compareTimes(
+        timeA,
+        timeB
+    ) {
+
+        const dateA =
+            parseDate(
+                timeA
+            );
+
+
+        const dateB =
+            parseDate(
+                timeB
+            );
+
+
+        if (
+            !dateA &&
+            !dateB
+        ) {
+
+            return 0;
+
+        }
+
+
+        if (!dateA) {
+            return 1;
+        }
+
+
+        if (!dateB) {
+            return -1;
+        }
+
+
+        return dateA - dateB;
+
+    }
+
+
+    // =========================================================
+    // COMPARE DURATIONS
+    // =========================================================
+
+    function compareDuration(
+        timeA,
+        timeB,
+        ascending = true
+    ) {
+
+        const a =
+            parseDuration(
+                timeA
+            );
+
+
+        const b =
+            parseDuration(
+                timeB
+            );
+
+
+        // DNF always last.
+
+        if (
+            a.dnf !== b.dnf
+        ) {
+
+            return a.dnf
+                ? 1
+                : -1;
+
+        }
+
+
+        return ascending
+
+            ? a.minutes - b.minutes
+
+            : b.minutes - a.minutes;
+
+    }
+
+
+    // =========================================================
+    // PARSE DURATION
+    // =========================================================
+
+    function parseDuration(
+        time
+    ) {
+
+        if (
+            !time ||
+            time === "-"
+        ) {
+
+            return {
+
+                dnf: false,
+
+                minutes: Infinity
+
+            };
+
+        }
+
+
+        if (
+            !time.includes(
+                "DNF"
+            )
+        ) {
+
+            const match =
+                time.match(
+                    /(\d+)h\s+(\d+)m/
+                );
+
+
+            if (match) {
+
+                return {
+
+                    dnf: false,
+
+                    minutes:
+                        Number(
+                            match[1]
+                        ) * 60
+                        +
+                        Number(
+                            match[2]
+                        )
+
+                };
+
+            }
+
+        }
+
+
+        const dnfMatch =
+            time.match(
+                /DNF(?:\s*\((\d+)h\s+(\d+)m\))?/
+            );
+
+
+        if (dnfMatch) {
+
+            const hours =
+                dnfMatch[1]
+                    ? Number(
+                        dnfMatch[1]
+                    )
+                    : Infinity;
+
+
+            const minutes =
+                dnfMatch[2]
+                    ? Number(
+                        dnfMatch[2]
+                    )
+                    : Infinity;
+
+
+            return {
+
+                dnf: true,
+
+                minutes:
+                    hours * 60 +
+                    minutes
+
+            };
+
+        }
+
+
+        return {
+
+            dnf: true,
+
+            minutes: Infinity
+
+        };
+
+    }
+
+
+    // =========================================================
+    // RESET ARROWS
+    // =========================================================
+
+    function resetArrows() {
+
+        document
+            .querySelectorAll(
+                ".arrow"
+            )
+            .forEach(
+                arrow => {
+
+                    arrow
+                        .classList
+                        .remove(
+                            "sorted"
+                        );
+
+
+                    arrow.style.transform =
+                        "scale(1) rotate(0deg)";
+
+                }
+            );
+
+    }
+
+
+    // =========================================================
+    // UPDATE ARROW
+    // =========================================================
+
+    function updateArrow(
+        tableKey,
+        columnIndex,
+        ascending
+    ) {
+
+        const headerId =
+            getHeaderId(
+                tableKey,
+                columnIndex
+            );
+
+
+        if (!headerId) {
+            return;
+        }
+
+
+        const arrow =
+            document.querySelector(
+                `#${headerId} .arrow`
+            );
+
+
+        if (!arrow) {
+            return;
+        }
+
+
+        arrow
+            .classList
+            .add("sorted");
+
+
+        arrow.style.transform =
+            `scale(1.5) rotate(${ascending ? 0 : 180}deg)`;
+
+    }
+
+
+    // =========================================================
+    // HEADER ID
+    // =========================================================
+
+    function getHeaderId(
+        tableKey,
+        columnIndex
+    ) {
+
+        const ids = {
+
+            "100km": [
+
+                null,
+
+                "name-header-100km",
+
+                "surname-header-100km",
+
+                "starts-header-100km",
+
+                "kp1-header-100km",
+
+                "kp2-header-100km",
+
+                "kp3-header-100km",
+
+                "finiss-header-100km",
+
+                "laiks-header-100km"
+
+            ],
+
+
+            "other": [
+
+                null,
+
+                "name-header-other",
+
+                "surname-header-other",
+
+                "starts-header-other",
+
+                "kp1-header-other",
+
+                "kp2-header-other",
+
+                "laiks-header-other"
+
+            ]
+
+        };
+
+
+        return (
+            ids[tableKey]?.[
+                columnIndex
+            ] || null
+        );
+
+    }
+
+
+    // =========================================================
+    // SEARCH
+    // =========================================================
+
+    function filterTable(
+        searchTerm
+    ) {
+
+        const normalizedSearchTerm =
+            normalizeText(
+                searchTerm
+            );
+
+
+        const activePanel =
+            document.querySelector(
+                ".table-panel.active"
+            );
+
+
+        if (!activePanel) {
+            return;
+        }
+
+
+        const rows =
+            activePanel.querySelectorAll(
+                ".results-table tbody tr"
+            );
+
+
+        rows.forEach(
+            row => {
+
+                const textContent =
+                    normalizeText(
+                        row.textContent
+                    );
+
+
+                row.style.display =
+                    textContent.includes(
+                        normalizedSearchTerm
+                    )
+                        ? ""
+                        : "none";
+
+            }
+        );
+
+    }
+
+
+    // =========================================================
+    // NORMALIZE SEARCH TEXT
+    // =========================================================
+
+    function normalizeText(
+        value
+    ) {
+
+        return String(
+            value
+        )
+            .normalize(
+                "NFD"
+            )
+            .replace(
+                /[\u0300-\u036f]/g,
+                ""
+            )
+            .toLowerCase();
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
